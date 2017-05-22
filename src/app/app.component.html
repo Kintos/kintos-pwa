@@ -1,3 +1,61 @@
+<style>
+.demo-card-wide.mdl-card {
+  width: 100%;
+}
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 176px;
+  background: url('../assets/images/logo.png') center / cover;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
+</style>
+<!--
 <h1>
   {{title}}
 </h1>
+-->
+
+
+<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text" style="color:#7f8c8d;">No hay pretextos</h2>
+  </div>
+  <div class="mdl-card__supporting-text">
+    <!-- Slider with Starting Value -->
+    <p>¿cuánto te falta?</p>
+    <div>
+      <i class="material-icons" style="float:left;">remove_circle</i>
+      <input class="mdl-slider mdl-js-slider" type="range" min="0" max="100" value="25" tabindex="0">
+      <i class="material-icons" style="float:right;">add_circle</i>
+    </div>
+    <br><br>
+    <p>¿por cuánto tiempo?</p>    
+    <div style="display:inline;">
+      <i class="material-icons" style="float:left;">remove_circle</i>
+      <input class="mdl-slider mdl-js-slider" type="range" min="0" max="100" value="50" tabindex="0">
+      <i class="material-icons" style="float:right;">add_circle</i>
+    </div>
+
+  </div>
+  <div class="mdl-card__actions mdl-card--border" align="center">
+    <!--<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+      Solicitar dinero
+    </a>-->
+    <!-- Accent-colored raised button with ripple -->
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="color:#fff;">
+      Obtener ahora
+    </button>
+  </div>
+  <div class="mdl-card__menu">
+    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+      <i class="material-icons">share</i>
+    </button>
+  </div>  
+</div>
+
+<!-- Colored FAB button with ripple -->
+  <button id="boton_recompensa" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+    <i class="material-icons" style="color:#fff">star</i>
+  </button>
