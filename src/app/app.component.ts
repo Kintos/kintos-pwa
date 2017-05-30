@@ -9,22 +9,26 @@ import { Component } from '@angular/core';
 export class AppComponent {
   amount: number;
   duration: number;
-  total: number;
+  total: string;
   fee: number;
   display: string;
 
   constructor() {
     this.amount = 150;
     this.duration = 5;
-    this.fee = .30;
+    this.fee = .016;
   }
 
   changeDuration(value1, value2) {
     this.amount = value1;
     this.duration = value2;
-    this.total = this.amount  * (1 + this.fee);
+    this.total = `$ ${this.amount  * (1 + this.fee)} con ${this.fee * 100}%`;
     this.display = ` $ ${this.amount} / ${this.duration} días`;
   }
 
+  submitLoan (){
+    //Metodo para hacer el submit a la base de datos de los creditos
+    console.log("Hola");
+  }
 
 }

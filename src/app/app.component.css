@@ -5,6 +5,10 @@
     z-index: 3;
 }
 
+#submitLoan {
+  background-color: blue;
+}
+
 .infoText{
   text-align: center;
 }
