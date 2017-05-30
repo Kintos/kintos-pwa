@@ -11,16 +11,20 @@ export class AppComponent {
   duration: number;
   total: number;
   fee: number;
+  display: string;
 
-  constructor(){
+  constructor() {
     this.amount = 150;
     this.duration = 5;
     this.fee = .30;
   }
 
-  changeDuration(value1, value2){
+  changeDuration(value1, value2) {
     this.amount = value1;
     this.duration = value2;
     this.total = this.amount  * (1 + this.fee);
+    this.display = ` $ ${this.amount} / ${this.duration} días`;
   }
+
+
 }

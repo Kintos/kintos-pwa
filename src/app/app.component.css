@@ -13,13 +13,19 @@
   margin: 0;
   border-collapse: collapse;
   padding-bottom: 0;
+  text-align: center;
 }
 
 .infoInput{
   margin: 0;
   border-collapse: collapse;
   padding-top: 0;
+  text-align: center;
 }
 
-.sliderContainer{
+.sliderContainer {
+}
+
+.inputText {
+  width: 65%;
 }
