@@ -7,5 +7,20 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  title = 'Bienvenido a Kintos!';
+  amount: number;
+  duration: number;
+  total: number;
+  fee: number;
+
+  constructor(){
+    this.amount = 150;
+    this.duration = 5;
+    this.fee = .30;
+  }
+
+  changeDuration(value1, value2){
+    this.amount = value1;
+    this.duration = value2;
+    this.total = this.amount  * (1 + this.fee);
+  }
 }

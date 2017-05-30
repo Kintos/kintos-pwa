@@ -4,3 +4,22 @@
     right:30px;
     z-index: 3;
 }
+
+.infoText{
+  text-align: center;
+}
+
+.infoAmount{
+  margin: 0;
+  border-collapse: collapse;
+  padding-bottom: 0;
+}
+
+.infoInput{
+  margin: 0;
+  border-collapse: collapse;
+  padding-top: 0;
+}
+
+.sliderContainer{
+}
