@@ -1,27 +1,5 @@
-<style>
-.demo-card-wide.mdl-card {
-  width: 100%;
-}
-.demo-card-wide > .mdl-card__title {
-  color: #fff;
-  height: 176px;
-  background: url('../assets/images/logo.png') center / cover;
-}
-.demo-card-wide > .mdl-card__menu {
-  color: #fff;
-}
-</style>
-<!--
-<h1>
-  {{title}}
-</h1>
--->
-
 
 <div class="demo-card-wide mdl-card mdl-shadow--2dp">
-  <div class="mdl-card__title">
-    <h2 class="mdl-card__title-text" style="color:#7f8c8d;">No hay pretextos</h2>
-  </div>
   <div class="mdl-grid infoAmount">
     <div class="mdl-cell mdl-cell--2-col">
       Recibes
@@ -43,24 +21,19 @@
   </div>
 
   <div class="mdl-card__supporting-text">
-    <!-- Slider with Starting Value -->
     <form (input) = "changeDuration(value1.value, value2.value)">
     <p class = "infoText">¿Cuánto necesitas?</p>
     <div>
-      <i class="material-icons" style="float:left;">remove_circle</i>
-      <p class = "sliderContainer">
+      <i class="material-icons md-36 circleIcon" style="float:left;">remove_circle</i>
       <input class="mdl-slider mdl-js-slider" type="range" min="50" max="500" step = "50" value="150" tabindex="0" #value1>
-      </p>
-      <i class="material-icons" style="float:right;">add_circle</i>
+      <i class="material-icons md-36 circleIcon" style="float:right;">add_circle</i>
     </div>
     <br><br>
     <p class = "infoText">¿Por cuánto tiempo?</p>
     <div style="display:inline;">
-      <i class="material-icons" style="float:left;">remove_circle</i>
-      <p class = "sliderContainer">
+      <i class="material-icons md-36 circleIcon" style="float:left;">remove_circle</i>
       <input class="mdl-slider mdl-js-slider" type="range" min="1" max="8" step = "1" value="5" tabindex="0" #value2>
-      </p>
-      <i class="material-icons" style="float:right;">add_circle</i>
+      <i class="material-icons circleIcon" style="float:right;">add_circle</i>
     </div>
     </form>
   </div>
@@ -69,18 +42,8 @@
       Solicitar dinero
     </a>-->
     <!-- Accent-colored raised button with ripple -->
-    <button  id = "submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="color:#fff;" (click) = "submitLoan()">
-      Obtener ahora
-    </button>
-  </div>
-  <div class="mdl-card__menu">
-    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-      <i class="material-icons">share</i>
+    <button  id = "submitLoan" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"  (click) = "submitLoan()">
+      Pedir Prestamo
     </button>
   </div>
 </div>
-
-<!-- Colored FAB button with ripple -->
-  <button id="boton_recompensa" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-    <i class="material-icons" style="color:#fff">star</i>
-  </button>

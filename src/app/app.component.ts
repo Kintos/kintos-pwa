@@ -11,6 +11,8 @@ export class AppComponent {
   duration: number;
   total: string;
   fee: number;
+  ntotal: number;
+  stuff:number;
   display: string;
 
   constructor() {
@@ -22,13 +24,16 @@ export class AppComponent {
   changeDuration(value1, value2) {
     this.amount = value1;
     this.duration = value2;
-    this.total = `$ ${this.amount  * (1 + this.fee)} con ${this.fee * 100}%`;
+    this.ntotal = (value1 * this.fee * value2);
+    this.stuff = this.ntotal + this.amount;
+
+    this.total = `$ ${this.amount * (1 + this.fee)} con ${this.fee * 100}%`;
     this.display = ` $ ${this.amount} / ${this.duration} días`;
   }
 
-  submitLoan (){
-    //Metodo para hacer el submit a la base de datos de los creditos
-    console.log("Hola");
+  submitLoan () {
+    // Metodo para hacer el submit a la base de datos de los creditos
+    console.log('Hola');
   }
 
 }
