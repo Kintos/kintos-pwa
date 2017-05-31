@@ -10,30 +10,40 @@
   </div>
 
   <div class="mdl-grid infoInput">
-    <div class = "mdl-cell mdl-cell--2-col">
-      <input type="text" class = "inputText" name = "amount" [(ngModel)]="display" disabled>
+    <div class = "mdl-cell mdl-cell--4-col">
+      <label style = "border-style: solid; border-color:gray; padding: 5px; border-width: 1px" > {{ display }} </label>
+      <label >    =   </label>
+      <label style = "border-style: solid; border-color:gray; padding: 5px; border-width: 1px" > {{ total }} </label>
     </div>
-
-    <div class = "mdl-cell mdl-cell--2-col">
-      <input type="text" class = "inputText" name = "amount" [(ngModel)]="total" disabled>
-    </div>
-
   </div>
 
   <div class="mdl-card__supporting-text">
     <form (input) = "changeDuration(value1.value, value2.value)">
     <p class = "infoText">¿Cuánto necesitas?</p>
     <div>
-      <i class="material-icons md-36 circleIcon" style="float:left;">remove_circle</i>
+      <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--mini-fab">
+        <i class="material-icons circleIcon" >remove_circle</i>
+      </button>
       <input class="mdl-slider mdl-js-slider" type="range" min="50" max="500" step = "50" value="150" tabindex="0" #value1>
-      <i class="material-icons md-36 circleIcon" style="float:right;">add_circle</i>
+      <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--mini-fab">
+       <i class="material-icons circleIcon" >add_circle</i>
+      </button>
+
     </div>
     <br><br>
     <p class = "infoText">¿Por cuánto tiempo?</p>
     <div style="display:inline;">
-      <i class="material-icons md-36 circleIcon" style="float:left;">remove_circle</i>
-      <input class="mdl-slider mdl-js-slider" type="range" min="1" max="8" step = "1" value="5" tabindex="0" #value2>
-      <i class="material-icons circleIcon" style="float:right;">add_circle</i>
+      <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--mini-fab">
+        <i class="material-icons circleIcon">remove_circle</i>
+      </button>
+      <input class="mdl-slider mdl-js-slider" type="range" min="1" max="7" step = "1" value="5" tabindex="0" #value2>
+      <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--mini-fab">
+        <i class="material-icons circleIcon">add_circle</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
+  <i class="material-icons">add</i>
+</button>
+
     </div>
     </form>
   </div>
