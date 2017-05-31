@@ -1,5 +1,4 @@
-
-<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+<div class="demo-card-wide mdl-card mdl-shadow--4dp">
   <div class="mdl-grid infoAmount">
     <div class="mdl-cell mdl-cell--2-col">
       Recibes
@@ -13,11 +12,9 @@
     <div class = "mdl-cell mdl-cell--2-col">
       <input type="text" class = "inputText" name = "amount" [(ngModel)]="display" disabled>
     </div>
-
     <div class = "mdl-cell mdl-cell--2-col">
       <input type="text" class = "inputText" name = "amount" [(ngModel)]="total" disabled>
     </div>
-
   </div>
 
   <div class="mdl-card__supporting-text">
@@ -33,17 +30,23 @@
     <div style="display:inline;">
       <i class="material-icons md-36 circleIcon" style="float:left;">remove_circle</i>
       <input class="mdl-slider mdl-js-slider" type="range" min="1" max="8" step = "1" value="5" tabindex="0" #value2>
-      <i class="material-icons circleIcon" style="float:right;">add_circle</i>
+      <i class="material-icons md-36 circleIcon" style="float:right;">add_circle</i>
     </div>
     </form>
   </div>
+  <br><br>
   <div class="mdl-card__actions mdl-card--border" align="center">
     <!--<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
       Solicitar dinero
     </a>-->
     <!-- Accent-colored raised button with ripple -->
-    <button  id = "submitLoan" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"  (click) = "submitLoan()">
-      Pedir Prestamo
+    <br>
+    <button id = "submitLoan" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"  (click) = "submitLoan()">
+      Pedir préstamo
     </button>
+    <br><br>    
+  </div>
+  <div align="center">
+    <img src="assets/images/Trophy_Icon.svg" width="50%" alt="" />
   </div>
 </div>

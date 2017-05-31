@@ -12,13 +12,20 @@ export class AppComponent {
   total: string;
   fee: number;
   ntotal: number;
-  stuff:number;
+  stuff: number;
   display: string;
 
   constructor() {
     this.amount = 150;
     this.duration = 5;
     this.fee = .016;
+  }
+
+  ngOnInit(value1, value2) {
+    // ...    
+    
+    this.display = ` Mueve el slider `;
+    this.total = ` para comenzar`;
   }
 
   changeDuration(value1, value2) {
