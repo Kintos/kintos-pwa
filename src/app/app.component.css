@@ -1,6 +1,6 @@
 #submitLoan {
   background-color:#8CC9F0;
-  border-radius: 25px;
+  border-radius: 15px;
   height: 45px;
   width: 70%;
   font-size: 18px;
@@ -55,4 +55,30 @@
 
 .material-icons {
   font-size: 40px;
+}
+
+
+/* sliders design adjustment*/
+
+
+#left{
+    display:inline-block;
+}
+
+#central{
+    display:block;
+    float:left;
+}
+
+#right{
+    display: block;
+    float: right;
+    display: inline-block;
+}
+
+.slider-box{
+  width:100%;
+    margin:0 auto;
+    display:inline-block;
+    text-align:center;
 }
