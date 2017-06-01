@@ -11,9 +11,91 @@
 
   <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
+<<<<<<< HEAD
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.light_green-orange.min.css" />
   <link rel="stylesheet" href="http://overpass-30e2.kxcdn.com/overpass.css" type="text/css"/>
+=======
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" type="text/css"/>
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.light_green-orange.min.css" type="text/css"/>
+  <link rel="stylesheet" href="https://overpass-30e2.kxcdn.com/overpass.css" type="text/css"/>
+
+  <style>
+    .sk-cube-grid {
+      width: 150px;
+      height: 150px;
+      margin: 100px auto;
+    }
+
+    .sk-cube-grid .sk-cube {
+      width: 33%;
+      height: 33%;
+      /*background-color: #333;*/
+      
+      float: left;
+      -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+              animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out; 
+    }
+    .sk-cube-grid .sk-cube1 {
+      background-color: #86C25C;
+      -webkit-animation-delay: 0.2s;
+              animation-delay: 0.2s; }
+    .sk-cube-grid .sk-cube2 {
+      background-color: #8CC9F0; 
+      -webkit-animation-delay: 0.3s;
+              animation-delay: 0.3s; }
+    .sk-cube-grid .sk-cube3 {
+      background-color: #615095;
+      -webkit-animation-delay: 0.4s;
+              animation-delay: 0.4s; }
+    .sk-cube-grid .sk-cube4 {
+      background-color: #FF9800; 
+      -webkit-animation-delay: 0.1s;
+              animation-delay: 0.1s; }
+    .sk-cube-grid .sk-cube5 {
+      background-color: #7A7A7A; 
+      -webkit-animation-delay: 0.2s;
+              animation-delay: 0.2s; }
+    .sk-cube-grid .sk-cube6 {
+      background-color: #86C25C;
+      -webkit-animation-delay: 0.3s;
+              animation-delay: 0.3s; }
+    .sk-cube-grid .sk-cube7 {
+      background-color: #8CC9F0; 
+      -webkit-animation-delay: 0s;
+              animation-delay: 0s; }
+    .sk-cube-grid .sk-cube8 {
+      background-color: #615095;
+      -webkit-animation-delay: 0.1s;
+              animation-delay: 0.1s; }
+    .sk-cube-grid .sk-cube9 {
+      background-color: #FF9800; 
+      -webkit-animation-delay: 0.2s;
+              animation-delay: 0.2s; }
+
+    @-webkit-keyframes sk-cubeGridScaleDelay {
+      0%, 70%, 100% {
+        -webkit-transform: scale3D(1, 1, 1);
+                transform: scale3D(1, 1, 1);
+      } 35% {
+        -webkit-transform: scale3D(0, 0, 1);
+                transform: scale3D(0, 0, 1); 
+      }
+    }
+
+    @keyframes sk-cubeGridScaleDelay {
+      0%, 70%, 100% {
+        -webkit-transform: scale3D(1, 1, 1);
+                transform: scale3D(1, 1, 1);
+      } 35% {
+        -webkit-transform: scale3D(0, 0, 1);
+                transform: scale3D(0, 0, 1);
+      } 
+    }
+  </style>
+
+  
+>>>>>>> 186c93dad37b036568f2d5a369980382fecc39db
 </head>
 <body>
   <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -24,6 +106,7 @@
           Kintos
         </span>
         <!-- Add spacer, to align navigation to the right -->
+<<<<<<< HEAD
         <div class="mdl-layout-spacer">
           <img src="../assets/images/KintosCoin_Icon.svg" alt="Tu nivel" width="30%" align="right">
         </div>
@@ -35,11 +118,25 @@
           <a class="mdl-navigation__link" href=""><i class="material-icons">build</i> Configuraciones</a>
           <a class="mdl-navigation__link" href=""><i class="material-icons">help_outline</i> Ayuda</a>
           <a class="mdl-navigation__link" href=""><i class="material-icons">arrow_forward</i> Salir</a>
+=======
+        <div class="mdl-layout-spacer"></div>              
+        <img src="assets/images/KintosCoin_Icon.svg" width="75px">
+        <p style="color:#fff;">50</p>  
+        <!-- Navigation. We hide it in small screens. -->
+        <nav class="mdl-navigation mdl-layout--large-screen-only">
+          <a class="mdl-navigation__link" href=""><i class="material-icons">loyalty</i> &nbsp; Recompensas</a>
+          <a class="mdl-navigation__link" href=""><i class="material-icons">payment</i> &nbsp; Pagos</a>
+          <a class="mdl-navigation__link" href=""><i class="material-icons">compare_arrows</i> &nbsp; Prestamos</a>
+          <a class="mdl-navigation__link" href=""><i class="material-icons">build</i> &nbsp; Configuraciones</a>
+          <a class="mdl-navigation__link" href=""><i class="material-icons">help_outline</i> &nbsp; Ayuda</a>
+          <a class="mdl-navigation__link" href=""><i class="material-icons">arrow_forward</i> &nbsp; Salir</a>
+>>>>>>> 186c93dad37b036568f2d5a369980382fecc39db
         </nav>
       </div>
     </header>
     <div class="mdl-layout__drawer">
       <span class="mdl-layout-title">Kintos</span>
+<<<<<<< HEAD
       <nav class="mdl-navigation" style="color:#fff;">
         <a class="mdl-navigation__link" href=""><i class="material-icons">loyalty</i> Recompensas</a>
         <a class="mdl-navigation__link" href=""><i class="material-icons">payment</i> Pagos</a>
@@ -47,6 +144,15 @@
         <a class="mdl-navigation__link" href=""><i class="material-icons">build</i> Configuraciones</a>
         <a class="mdl-navigation__link" href=""><i class="material-icons">help_outline</i> Ayuda</a>
         <a class="mdl-navigation__link" href=""><i class="material-icons">arrow_forward</i> Salir</a>
+=======
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href=""><i class="material-icons">loyalty</i> &nbsp; Recompensas</a>
+        <a class="mdl-navigation__link" href=""><i class="material-icons">payment</i> &nbsp; Pagos</a>
+        <a class="mdl-navigation__link" href=""><i class="material-icons">compare_arrows</i> &nbsp; Movimientos</a>
+        <a class="mdl-navigation__link" href=""><i class="material-icons">build</i> &nbsp; Configuraciones</a>
+        <a class="mdl-navigation__link" href=""><i class="material-icons">help_outline</i> &nbsp; Ayuda</a>
+        <a class="mdl-navigation__link" href=""><i class="material-icons">arrow_forward</i> &nbsp; Salir</a>
+>>>>>>> 186c93dad37b036568f2d5a369980382fecc39db
       </nav>
     </div>
     <main class="mdl-layout__content">

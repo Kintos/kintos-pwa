@@ -13,7 +13,7 @@ export class AppComponent {
   total: string;
   fee: number;
   ntotal: number;
-  stuff:number;
+  stuff: number;
   display: string;
 
   constructor() {
@@ -22,6 +22,13 @@ export class AppComponent {
     this.fee = .016;
     this.display = ` $ ${this.amount} / ${this.duration} días`;
     this.total = `$ ${this.amount * (1 + this.fee)} con ${this.fee * 100}%`;
+  }
+
+  ngOnInit(value1, value2) {
+    // ...    
+    
+    this.display = ` Mueve el slider `;
+    this.total = ` para comenzar`;
   }
 
   changeDuration(value1, value2) {

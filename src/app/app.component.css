@@ -29,13 +29,15 @@
 }
 
 .sliderContainer {
+  display:inline-block;
 }
 
 .inputText {
   width: 70%;
   height: 90%;
   padding-top: 4px;
-
+  background-color: #fff;
+  border-color: #fff;
 }
 
 .demo-card-wide.mdl-card {
