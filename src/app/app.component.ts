@@ -19,6 +19,8 @@ export class AppComponent {
     this.amount = 150;
     this.duration = 5;
     this.fee = .016;
+    this.display = ` $ ${this.amount} / ${this.duration} días`;
+    this.total = `$ ${this.amount * (1 + this.fee)} con ${this.fee * 100}%`;
   }
 
   ngOnInit(value1, value2) {
@@ -43,4 +45,7 @@ export class AppComponent {
     console.log('Hola');
   }
 
+  changeSlider(){
+    console.log('holi');
+  }
 }
