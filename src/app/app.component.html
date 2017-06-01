@@ -24,16 +24,14 @@
     <form (input) = "changeDuration(value1.value, value2.value)">
     <p class = "infoText">¿Cuánto necesitas?</p>
     <div>   
-      <i class="material-icons circleIcon" style="float:left;">remove_circle</i>    
+      <!--<i class="material-icons circleIcon" style="float:left;">remove_circle</i> -->
       <input class="mdl-slider mdl-js-slider" type="range" min="50" max="500" step = "50" value="150" tabindex="0" #value1>  
-      <i class="material-icons circleIcon" style="float:right;">add_circle</i>    
+      <!-- <i class="material-icons circleIcon" style="float:right;">add_circle</i>    -->
     </div>
     <br><br>
     <p class = "infoText">¿Por cuánto tiempo?</p>
-    <div style="display:inline;">
-      <i class="material-icons md-36 circleIcon" style="float:left;">remove_circle</i>
-      <input class="mdl-slider mdl-js-slider" type="range" min="1" max="8" step = "1" value="5" tabindex="0" #value2>
-      <i class="material-icons md-36 circleIcon" style="float:right;">add_circle</i>
+    <div style="display:inline;">      
+      <input class="mdl-slider mdl-js-slider" type="range" min="1" max="8" step = "1" value="5" tabindex="0" #value2>     
     </div>
     </form>
   </div>
@@ -49,7 +47,8 @@
     </button>
     <br><br>    
   </div>
-  <div align="center">
-    <img src="assets/images/Trophy_Icon.svg" width="50%" alt="" />
-  </div>
+  
+</div>
+<div align="center">
+  <img src="assets/images/Trophy_Icon.svg" width="50%" alt="" />
 </div>
