@@ -4,10 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { RewardsComponent } from './components/rewards/rewards.component';
+import {routing} from './app.routing';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RewardsComponent
   ],
   imports: [
     BrowserModule,
