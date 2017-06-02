@@ -24,12 +24,6 @@ export class AppComponent {
     this.total = `$ ${this.amount * (1 + this.fee)} con ${this.fee * 100}%`;
   }
 
-  ngOnInit(value1, value2) {
-    // ...    
-    
-    this.display = ` Mueve el slider `;
-    this.total = ` para comenzar`;
-  }
 
   changeDuration(value1, value2) {
     this.amount = value1;
