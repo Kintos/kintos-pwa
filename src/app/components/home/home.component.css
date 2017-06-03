@@ -1,0 +1,87 @@
+#submitLoan {
+  background-color:#8CC9F0;
+  border-radius: 15px;
+  height: 45px;
+  width: 70%;
+  font-size: 18px;
+  color: white;
+}
+
+.infoText{
+  text-align: center;
+  font-size: 20px;
+}
+
+.infoAmount{
+  margin: 0;
+  border-collapse: collapse;
+  padding-bottom: 0;
+  text-align: center;
+  font-size: 20px;
+}
+
+.infoInput{
+  margin: 0;
+  border-collapse: collapse;
+  padding-top: 0;
+  padding-bottom: 0;
+  text-align: center;
+}
+
+.sliderContainer {
+  display:inline-block;
+}
+
+.inputText {
+  width: 70%;
+  height: 90%;
+  padding-top: 4px;
+  background-color: #fff;
+  border-color: #fff;
+}
+
+.demo-card-wide.mdl-card {
+  width: 95%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px;
+}
+
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
+
+.circleIcon {
+  color: #86C25C;
+}
+
+.material-icons {
+  font-size: 40px;
+}
+
+
+/* sliders design adjustment*/
+
+
+#left{
+    display:inline-block;
+}
+
+#central{
+    display:block;
+    float:left;
+}
+
+#right{
+    display: block;
+    float: right;
+    display: inline-block;
+}
+
+.slider-box{
+  width:100%;
+    margin:0 auto;
+    display:inline-block;
+    text-align:center;
+}
+

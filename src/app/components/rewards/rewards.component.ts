@@ -3,7 +3,8 @@ import { Component } from '@angular/core';
 @Component({
    moduleId: module.id,
    selector: 'rewards',
-   template : 'rewards.component.ts'
+   templateUrl: './rewards.component.html',
+   //styleUrls: ['./components/rewards/rewards.component.css']
 })
 
 export class RewardsComponent{

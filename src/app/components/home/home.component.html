@@ -1,0 +1,51 @@
+<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+  <div class="mdl-grid infoAmount">
+    <div class="mdl-cell mdl-cell--2-col">
+      Recibes
+    </div>
+    <div  class="mdl-cell mdl-cell--2-col ">
+       Pagas
+    </div>
+  </div>
+
+  <div class="mdl-grid infoInput">
+    <div class = "mdl-cell mdl-cell--4-col slider-box">
+      <label id="left" style = "border-style: solid; border-color:gray; padding: 5px; border-width: 0px" > {{ display }} </label>
+      <label id="central" >    =   </label>
+      <label id="right" style = "border-style: solid; border-color:gray; padding: 5px; border-width: 0px" > {{ total }} </label>
+    </div>
+  </div>
+
+  <div class="mdl-card__supporting-text">
+    <form (input) = "changeDuration(value1.value, value2.value)">
+      <p class = "infoText">¿Cuánto necesitas?</p>
+      <div class="slider-box">
+          <!--<i id = "less" class="material-icons circleIcon" >remove_circle</i>-->
+          <input id="sliderCalc" class="mdl-slider mdl-js-slider" type="range" min="50" max="500" step = "50" value="150" tabindex="0" #value1>
+          <!--<i id ="more" class="material-icons circleIcon" >add_circle</i>-->
+      </div>
+      <br><br>
+      <p class = "infoText">¿Por cuánto tiempo?</p>
+      <div class="slider-box">
+          <!--<i id = "less" class="material-icons circleIcon">remove_circle</i>-->
+          <input id="sliderCalc" class="mdl-slider mdl-js-slider" type="range" min="1" max="7" step = "1" value="5" tabindex="0" #value2>
+          <!--<i id="more" class="material-icons circleIcon">add_circle</i>-->
+      </div>
+    </form>
+  </div>
+  <div class="mdl-card__actions mdl-card--border" align="center">
+    <!-- Accent-colored raised button with ripple -->
+    <button id = "submitLoan" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"  (click) = "submitLoan()">
+      Pedir préstamo
+    </button>
+     <!--
+      <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
+        <i class="material-icons">add</i>
+      </button>-->
+  </div>
+</div>
+<div class="demo-card-wide mdl-card mdl-shadow--2dp" id = "levelCard">
+<div align="center" style="padding-top: 15px;">
+  <img src="assets/images/Trophy_Icon.svg" width="50%" alt=""  style="background-color:rgba(0, 0, 0, 0.05); border-radius: 50%;"/>
+</div>
+</div>
