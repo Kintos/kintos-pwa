@@ -7,9 +7,9 @@ import { Component } from '@angular/core';
     styleUrls : ['./home.component.css']
 })
 
-export class HomeComponent{
+export class HomeComponent {
 
-    amount: number;
+  amount: number;
   duration: number;
   total: string;
   fee: number;
@@ -41,7 +41,7 @@ export class HomeComponent{
     console.log('Hola');
   }
 
-  changeSlider(){
+  changeSlider() {
     console.log('holi');
   }
 

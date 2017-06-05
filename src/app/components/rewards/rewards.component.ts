@@ -4,16 +4,16 @@ import { Component } from '@angular/core';
    moduleId: module.id,
    selector: 'rewards',
    templateUrl: './rewards.component.html',
-   //styleUrls: ['./components/rewards/rewards.component.css']
+   styleUrls: ['./rewards.component.css']
 })
 
-export class RewardsComponent{
+export class RewardsComponent {
 
-    constructor(){
+    constructor() {
 
     }
 
-    ngOnInit(){
+    ngOnInit() {
 
     }
 
