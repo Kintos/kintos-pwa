@@ -2,8 +2,24 @@
   background-color: #86C25C;
 }
 
-
+.mdl-list__item-secondary-content {
+  width: 60px;
+}
 .tab_bar {
   color: #fff;
   font-size: 12px;
+}
+
+.mdl-list {
+  margin: 0px;
+  padding: 0px;
+  background-color: #fff;
+}
+
+.button_rewards {
+  height: 50px;
+}
+
+hr {
+  margin: 0px;
 }

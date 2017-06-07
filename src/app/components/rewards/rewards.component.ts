@@ -1,3 +1,4 @@
+import { ElementRef, ViewChild, Renderer2 } from '@angular/core';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,13 +9,18 @@ import { Component } from '@angular/core';
 })
 
 export class RewardsComponent {
-
+    @ViewChild('dialog_reward') dialog: ElementRef;
     constructor() {
 
     }
 
     ngOnInit() {
 
+    }
+
+    showDialog() {
+      console.log('hola');
+      this.dialog.nativeElement.showModal();
     }
 
 }
