@@ -15,8 +15,9 @@
   <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.light_green-orange.min.css" />
   <link rel="stylesheet" href="https://overpass-30e2.kxcdn.com/overpass.css" type="text/css"/>
 
-  <!-- Bower components -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/10.0.0/nouislider.min.js" />
+  <!-- External libraries components -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/10.0.0/nouislider.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/10.0.0/nouislider.css" />
   <link rel="stylesheet" href="./assets/bower_components/jquery-creditcardvalidator/jquery.creditCardValidator.js" />
   <link rel="stylesheet" href="./assets/bower_components/sweetalert/dist/sweetalert.css" />
@@ -79,35 +80,26 @@
       </div>
     </main>
   </div>
-  <script src="./src/assets/bower_components/nouislider/distribute/nouislider.min.js"></script>
-  <script>
-      var bigValueSlider = document.getElementById('slider-huge'),
-      bigValueSpan = document.getElementById('huge-value');
-    
-    noUiSlider.create(bigValueSlider, {
-      start: 0,
-      step: 1,
-      format: wNumb({
-        decimals: 0
-      }),
-      range: {
-        min: 0,
-        max: 13
-      }
-    });
-    // Note how these are 'string' values, not numbers.
-    var range = [
-      '0','2097152','4194304',
-      '8388608','16777216','33554432',
-      '67108864','134217728','268435456',
-      '536870912','1073741824',
-      '2147483648','4294967296',
-      '8589934592'
-    ];
-
-    bigValueSlider.noUiSlider.on('update', function ( values, handle ) {
-      bigValueSpan.innerHTML = range[values[handle]];
-    });
+  <script type="text/javascript">
+      $(document).ready(function(){
+      //$( "p" ).text( "The DOM is now loaded and can be manipulated." );
+        var slider = document.getElementById('sliderMoney')
+        noUiSlider.create(slider, {
+          start: [ 60 ],
+          range: {
+            'min': [   0 ],
+            'max': [ 100 ]
+          }
+        });
+        var slider = document.getElementById('sliderTime')
+        noUiSlider.create(slider, {
+          start: [ 40 ],
+          range: {
+            'min': [   0 ],
+            'max': [ 100 ]
+          }
+        });
+      });
   </script>
   <script>
     if (navigator.serviceWorker) {
