@@ -1,10 +1,19 @@
 #submitLoan {
   background-color:#8CC9F0;
-  border-radius: 15px;
+  border-radius: 7px;
   height: 45px;
   width: 70%;
   font-size: 18px;
   color: white;
+}
+
+#title{
+  font-family: overpass;
+  font-size: 1.5em;
+}
+
+#date{
+  font-family: overpass;
 }
 
 .infoText{
@@ -41,7 +50,7 @@
 }
 
 .demo-card-wide.mdl-card {
-  width: 95%;
+  width: 90%;
   margin-right: auto;
   margin-left: auto;
   margin-top: 20px;
@@ -67,27 +76,28 @@
     border-style: solid; 
     border-color:#FFF;
     border-width: 2px;
-    margin-right:15px;
-    border-bottom-color: #86C25C;
+    margin-right:10px;
+    border-bottom-color:  #FF9800;
 }
 
 #right{
     display: inline-block;
     padding:5px;
-    margin-left:15px;
+    margin-left:10px;
     border-style: solid; 
     border-color:#FFF;
     border-width: 2px;
-    border-bottom-color: #86C25C;
+    border-bottom-color: #615095 ;
 }
 
 /* SLIDER */
 
 .slider-box{
   width:100%;
-    margin:0 auto;
-    display:inline-block;
-    text-align:center;
+  margin:0 auto;
+  display:inline-block;
+  text-align:center;
+  /*clear:both;*/
 }
 
 .noUi-target {
@@ -104,4 +114,22 @@
 
 #sliderMoney .noUi-connect {
   background-color: blue;
+}
+
+/* DIVS SETTINGS */
+
+#wrapper {
+  clear:both;
+}
+.first {
+  float:left;
+}
+.second {
+  width: 60%;
+  float:left;
+  padding: 0px;
+  margin: 0px;
+}
+.third {
+  float:left;
 }

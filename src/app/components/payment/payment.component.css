@@ -1,0 +1,33 @@
+.demo-card-square.mdl-card {
+  display: block;
+  width: 100%;
+}
+.demo-card-square > .mdl-card__title {
+  color: #fff;
+  background: bottom right 15% no-repeat #7A7A7A;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
+.demo-container {
+    width: 100%;
+    max-width: 500px;
+    /*margin: 50px auto;*/
+}
+form {
+    /*margin: 30px;*/
+}
+input {
+    width: 200px;
+    padding: 8px;
+    margin: 10px auto;
+    display: block;
+}
+#submitLoan {
+  background-color:#8CC9F0;
+  border-radius: 7px;
+  height: 45px;
+  width: 70%;
+  font-size: 18px;
+  color: white;
+}

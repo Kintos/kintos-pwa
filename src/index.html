@@ -17,11 +17,16 @@
 
   <!-- External libraries components -->
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/10.0.0/nouislider.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/10.0.0/nouislider.css" />
-  <link rel="stylesheet" href="./assets/bower_components/jquery-creditcardvalidator/jquery.creditCardValidator.js" />
+  
   <link rel="stylesheet" href="./assets/bower_components/sweetalert/dist/sweetalert.css" />
-  <link rel="stylesheet" href="./assets/bower_components/sweetalert/dist/sweetalert.min.js" />
+  <script src="./assets/bower_components/sweetalert/dist/sweetalert.min.js"></script>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/card/2.3.0/card.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/card/2.3.0/card.js"> </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/card/2.3.0/jquery.card.min.js"></script>
 
 </head>
 <body>
@@ -32,7 +37,7 @@
           Kintos
         </span>        
         <div class="mdl-layout-spacer">
-          <img src="../assets/images/KintosCoin_Icon.svg" alt="Tu nivel" width="25%" align="right">
+          <img src="../assets/images/KintosCoin_Icon.svg" alt="Tu nivel" width="50px" align="right">
         </div>        
         <nav class="mdl-navigation mdl-layout--large-screen-only">
           <a class="mdl-navigation__link" href="/"><i class="material-icons">home</i> Inicio</a>
@@ -47,6 +52,7 @@
     </header>
     <div class="mdl-layout__drawer">
       <!--<span class="mdl-layout-title">Kintos</span>-->
+      
       <nav class="mdl-navigation" >
         <a class="mdl-navigation__link" href="/"><i class="material-icons">home</i> Inicio</a>
         <a class="mdl-navigation__link" href="/rewards"><i class="material-icons">loyalty</i> Recompensas</a>
@@ -80,43 +86,136 @@
   </div>
   <script type="text/javascript">
       $(document).ready(function(){
-                
+
+        if(document.URL.slice(-1) == "/"){
+        
+        function calculateInterest(amount, days){
+          var totalInterest = .020 * days
+          return amount * (1 + totalInterest)
+        }
+
+        var formatter = new Intl.NumberFormat('es-MX', {
+          style: 'currency',
+          currency: 'MXN',
+          minimumFractionDigits: 2,
+        });
+
+        function getDate(startDate, daysToAdd) {
+            var aryDates = [];
+
+            for(var i = 0; i <= daysToAdd; i++) {
+                var currentDate = new Date();
+                currentDate.setDate(startDate.getDate() + i);
+                aryDates.push(DayAsString(currentDate.getDay()) + ", " + currentDate.getDate() + " " + MonthAsString(currentDate.getMonth()) + " " + currentDate.getFullYear());
+            }
+            
+            return aryDates;
+        }
+
+        function MonthAsString(monthIndex) {
+            var d=new Date();
+            var month=new Array();
+            month[0]="Enero";
+            month[1]="Febrero";
+            month[2]="Marzo";
+            month[3]="Abril";
+            month[4]="Mayo";
+            month[5]="Junio";
+            month[6]="Julio";
+            month[7]="Agosto";
+            month[8]="Septiembre";
+            month[9]="Octubre";
+            month[10]="Noviembre";
+            month[11]="Diciembre";
+            
+            return month[monthIndex];
+        }
+
+        function DayAsString(dayIndex) {
+            var weekdays = new Array(7);
+            weekdays[0] = "Domingo";
+            weekdays[1] = "Lunes";
+            weekdays[2] = "Martes";
+            weekdays[3] = "Miercoles";
+            weekdays[4] = "Jueves";
+            weekdays[5] = "Viernes";
+            weekdays[6] = "Sabado";
+            
+            return weekdays[dayIndex];
+        }
+
+        var startDate = new Date()
+        var aryDates = getDate(startDate, 7)
+
         var slider = document.getElementById('sliderMoney')
         var slider2 = document.getElementById('sliderTime')
         var leftSelector = document.getElementById('left')
         var rightSelector = document.getElementById('right')
+        var dateField = document.getElementById('date')
 
         noUiSlider.create(slider, {
           start: [ 200 ],
           connect : true,
-          range: {
-            'min': [   50 ],
-            'max': [ 500 ]
+           range: {
+              'min': 50,
+              '10%': 100,
+              '20%': 150,
+              '30%': 200,
+              '40%': 250,
+              '50%': 300,
+              '60%': 350,
+              '70%': 400,
+              '80%': 450,
+              '90%': 500,
+              'max': 550
           },
+          snap: true/*,
           pips: {
             mode: 'range',
-            density: 20
-          }
+            density: 10
+          }*/
         });
 
         noUiSlider.create(slider2, {
           start: [ 5 ],
           connect:true,
           range: {
-            'min': [ 1 ],
-            'max': [ 7 ]
-          }
+            'min': 1,
+            '15%': 2,
+            '30%': 3,
+            '50%': 4,
+            '70%': 5,
+            '85%': 6,
+            'max': 7
+          },
+          snap: true/*,
+          pips: {
+            mode: 'range',
+            density: 100
+          }*/
         });
 
         slider.noUiSlider.on('update', function( values, handle ) {
-          leftSelector.innerHTML = values[handle];
+          amount = values[handle]
+          leftSelector.innerHTML = formatter.format(parseInt(amount)) + "MXN";
+          rightSelector.innerHTML = formatter.format(calculateInterest(amount, slider2.noUiSlider.get())) + "MXN";
         });
 
         slider2.noUiSlider.on('update', function(values, handle){
-          rightSelector.innerHTML = values[handle];
+          rightSelector.innerHTML = formatter.format(calculateInterest(parseInt(slider.noUiSlider.get()), values[handle])) + "MXN";
+          //rightSelector.innerHTML = aryDates[Math.round(values[handle])];
+          dateField.innerHTML = aryDates[Math.round(values[handle])];
         });
+      }
 
-      });
+      if(document.URL.slice(-1)=="t"){
+        new Card({
+          form: document.querySelector('form'),
+          container: '.card-wrapper',
+          width: 260, // optional — default 350px
+        });
+      }
+  });      
   </script>
   <script>
     if (navigator.serviceWorker) {
