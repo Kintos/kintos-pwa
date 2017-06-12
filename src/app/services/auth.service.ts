@@ -109,4 +109,7 @@ public messages: FirebaseListObservable<any>;
       });
   }
 
+  saveDatatoFB(object){
+  }
+
 }

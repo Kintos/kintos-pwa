@@ -53,6 +53,8 @@ export class HomeComponent { @ViewChild('scrollMe') private myScrollContainer: E
   }
 
   submitLoan(){
+    var amountAsked = document.getElementById("left").nodeValue
+    console.log(amountAsked)
     console.log("loan sent!")
   }
 }

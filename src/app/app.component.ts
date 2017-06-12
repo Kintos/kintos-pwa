@@ -21,11 +21,13 @@ export class AppComponent {
       (auth) => {
         if(auth == null) {
           // console.log("Not Logged in.");
-
+          //console.log(String(this.router.url))
           this.isLoggedIn = false;
           this.url = String(this.router.url);
-          if(this.url != "/signup"){
-            this.router.navigate(['login']);
+          if(this.url === "/signup" || this.url === "/login"){
+            // this.router.navigate(['login']);
+          }else{
+            document.location.href = "/login"
           }
         }
         else {
@@ -50,5 +52,6 @@ export class AppComponent {
 
   logout() {
     this.afService.logout();
+    document.location.href = "/login"
   }
 }

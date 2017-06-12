@@ -30,16 +30,16 @@
 			<form action="#" (submit)="register($event, name.value, email.value, password.value)">
         <div class="mdl-card__supporting-text">
             <div class="mdl-textfield mdl-js-textfield">
-              <input #name class="mdl-textfield__input" type="text" id="name"  />
-              <label class="mdl-textfield__label" for="username">Nombre completo (Como tu tarjeta de debito)</label>
+              <input #name class="mdl-textfield__input" type="text" id="name" placeholder="Nombre completo (Como tu tarjeta)" />
+              <!--<label class="mdl-textfield__label" for="username">Nombre completo (Como tu tarjeta de debito)</label>-->
             </div>
             <div class="mdl-textfield mdl-js-textfield">
-              <input #email class="mdl-textfield__input" type="email" id="email"  />
-              <label class="mdl-textfield__label" for="username">Correo electronico @itesm.mx</label>
+              <input #email class="mdl-textfield__input" type="email" id="email" placeholder="Correo electronico @itesm.mx"/>
+              <!--<label class="mdl-textfield__label" for="username">Correo electronico @itesm.mx</label>-->
             </div>
             <div class="mdl-textfield mdl-js-textfield">
-              <input #password class="mdl-textfield__input" type="password" id="password" />
-              <label class="mdl-textfield__label" for="userpass">Contrasena</label>
+              <input #password class="mdl-textfield__input" type="password" id="password"  placeholder="Contrasena"/>
+              <!--<label class="mdl-textfield__label" for="userpass">Contrasena</label>-->
             </div>
         </div>
         <div class="mdl-card__actions mdl-card--border">

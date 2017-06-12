@@ -19,14 +19,14 @@ export class LoginComponent {
 
   constructor(public afService: AuthService, private router: Router) {}
 
-  loginWithGoogle() {
-    this.afService.loginWithGoogle().then((data) => {
-      // Send them to the homepage if they are logged in
-      console.log(data);
-      this.afService.addUserInfo();
-      this.router.navigate(['']);
-    })
-  }
+  // loginWithGoogle() {
+  //   this.afService.loginWithGoogle().then((data) => {
+  //     // Send them to the homepage if they are logged in
+  //     console.log(data);
+  //     this.afService.addUserInfo();
+  //     this.router.navigate(['']);
+  //   })
+  // }
 
   loginWithEmail(event, email, password){
     event.preventDefault();
