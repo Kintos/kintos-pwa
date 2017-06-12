@@ -9,6 +9,9 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { MovementsComponent } from './components/movements/movements.component';
 import { HelpComponent } from './components/help/help.component';
 import { SettingsComponent } from './components/settings/settings.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
+
 
 
 const appRoutes: Routes = [
@@ -35,6 +38,14 @@ const appRoutes: Routes = [
     {
         path: 'settings',
         component: SettingsComponent
+    },
+    {
+        path: 'login',
+        component: LoginComponent
+    },
+    {
+        path: 'register',
+        component: SignupComponent
     }
 ];
 
