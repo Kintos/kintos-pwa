@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 
 import { AuthService } from './services/auth.service';
+import { LoanRequestService } from './services/loan-request.service'
 
 import { AppComponent } from './app.component';
 
@@ -48,7 +49,7 @@ export const firebaseConfig = {
     routing,
     AngularFireModule.initializeApp(firebaseConfig)
   ],
-  providers: [AuthService],
+  providers: [AuthService, LoanRequestService],
   bootstrap: [AppComponent]
 })
 

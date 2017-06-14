@@ -5,7 +5,7 @@
 import {Component, OnInit, AfterViewChecked, ElementRef, ViewChild} from '@angular/core';
 import { AuthService } from "../../services/auth.service";
 import {FirebaseListObservable} from "angularfire2";
-
+import { LoanRequestService } from "../../services/loan-request.service";
 @Component({
     moduleId : module.id,
     selector : 'home',
@@ -17,7 +17,7 @@ export class HomeComponent { @ViewChild('scrollMe') private myScrollContainer: E
   public newMessage: string;
   public messages: FirebaseListObservable<any>;
 
-  constructor(public afService: AuthService) {
+  constructor(public afService: AuthService, public insertLoanService: LoanRequestService) {
     this.messages = this.afService.messages;
   }
 
@@ -53,8 +53,15 @@ export class HomeComponent { @ViewChild('scrollMe') private myScrollContainer: E
   }
 
   submitLoan(){
-    var amountAsked = document.getElementById("left").nodeValue
-    console.log(amountAsked)
-    console.log("loan sent!")
+     let loan = (document.getElementById("left") as HTMLLabelElement).textContent;
+     let toPay = (document.getElementById("right") as HTMLLabelElement).textContent;
+     let expDate = (document.getElementById("date") as HTMLLabelElement).textContent;
+
+    console.log(loan)
+    console.log(toPay)
+    console.log(expDate)
+
+    this.insertLoanService.insertLoanToDB(loan, toPay, expDate);
+
   }
 }
