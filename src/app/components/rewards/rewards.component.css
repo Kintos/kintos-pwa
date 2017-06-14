@@ -1,5 +1,6 @@
 .mdl-tabs__tab-bar {
   background-color: #86C25C;
+  text-align: center;
 }
 
 .mdl-list__item-secondary-content {
@@ -7,7 +8,7 @@
 }
 .tab_bar {
   color: #fff;
-  font-size: 12px;
+  width: 100%;
 }
 
 .mdl-list {
@@ -22,4 +23,20 @@
 
 hr {
   margin: 0px;
+}
+
+#restaurant{
+  color:white;
+}
+
+#powerup{
+  color:white;
+}
+
+#powerup:active {
+  color: yellow;
+}
+
+#restaurant:active {
+  color: yellow;
 }

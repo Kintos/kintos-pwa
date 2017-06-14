@@ -1,8 +1,7 @@
 <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
   <div class="mdl-tabs__tab-bar">
-    <a href="#restaurantes-panel" class="mdl-tabs__tab is-active tab_bar">Restaurantes</a>
-    <a href="#Entretenimiento-panel" class="mdl-tabs__tab tab_bar">Entretenimiento</a>
-    <a href="#powerup-panel" class="mdl-tabs__tab tab_bar">Power-Up</a>
+    <a href="#restaurantes-panel" id="restaurant" class="mdl-tabs__tab is-active tab_bar">Restaurantes</a>
+    <a href="#powerup-panel" id= "powerup" class="mdl-tabs__tab tab_bar">Power-Up</a>
   </div>
   <div class="mdl-tabs__panel is-active" id="restaurantes-panel">
     <ul class="demo-list-three mdl-list">
@@ -16,7 +15,7 @@
           </span>
         </span>
         <span class="mdl-list__item-secondary-content">
-          <input type="image"  class="button_rewards" src="../assets/images/KintosCoin_Icon.svg">
+          <input type="image" (click) = "showModal();" class="button_rewards" src="../assets/images/KintosCoin_Icon.svg">
         </span>
       </li>
       <hr>
@@ -29,8 +28,9 @@
             lun-sab
           </span>
         </span>
+
         <span class="mdl-list__item-secondary-content">
-          <input type="image"  class="button_rewards" src="../assets/images/KintosCoin_Icon.svg">
+          <input type="image" (click) = "showModal();" class="button_rewards" src="../assets/images/KintosCoin_Icon.svg">
         </span>
 
       </li>
@@ -45,21 +45,10 @@
           </span>
         </span>
         <span class="mdl-list__item-secondary-content">
-          <input type="image"  class="button_rewards" (click) = "showDialog();"src="../assets/images/KintosCoin_Icon.svg">
+          <input type="image" (click) = "showModal();" class="button_rewards" src="../assets/images/KintosCoin_Icon.svg">
         </span>
       </li>
       <hr>
-    </ul>
-  </div>
-  <div class="mdl-tabs__panel" id="Entretenimiento-panel">
-    <ul>
-      <li>Eddard</li>
-      <li>Catelyn</li>
-      <li>Robb</li>
-      <li>Sansa</li>
-      <li>Brandon</li>
-      <li>Arya</li>
-      <li>Rickon</li>
     </ul>
   </div>
   <div class="mdl-tabs__panel" id="powerup-panel">
@@ -73,16 +62,4 @@
       <li>Rickon</li>
     </ul>
   </div>
-
-  <dialog class="mdl-dialog" id = "dialog_reward">
-    <div class="mdl-dialog__content">
-      <p>
-        Allow this site to collect usage data to improve your experience?
-      </p>
-    </div>
-    <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
-      <button type="button" class="mdl-button">Agree</button>
-      <button type="button" class="mdl-button close">Disagree</button>
-    </div>
-  </dialog>
 </div>
