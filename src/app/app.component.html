@@ -1,4 +1,4 @@
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-desktop-drawer-button">
     <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
             <span class="mdl-layout-title" style="color:#fff">
@@ -6,22 +6,23 @@
                 Kintos
             </span>
             <div class="mdl-layout-spacer" *ngIf="isLoggedIn">
-                <p style="color:#fff; font-family:'overpass'" align="right">
-                    50
-                    <img src="../assets/images/KintosCoin_Icon.svg" alt="Tu nivel" width="50px" align="right"/>
-                </p>
+            </div>
+            <div class="white" style="position:relative;" align="right">
+              <div class="" style="position:absolute;top:16px;left:-16px;">
+                50
+              </div>
+              <img src="../assets/images/KintosCoin_Icon.svg" alt="Tu nivel" width="50px" align="right"/>
             </div>
             <nav class="mdl-navigation mdl-layout--large-screen-only" style="color:#fff; font-family:'overpass'" *ngIf="isLoggedIn">
-                <a class="mdl-navigation__link" href="/">
-                  <i class="material-icons">home</i>
-                  <span class="drawer-text">Inicio</span>
+                <a class="mdl-navigation__link white" href="/">
+                  <i class="material-icons">home</i> Inicio
                 </a>
-                <a class="mdl-navigation__link" href="/rewards" routerLinkActive="active"><i class="material-icons">loyalty</i> Recompensas</a>
-                <a class="mdl-navigation__link" href="payment" routerLinkActive="active"><i class="material-icons">payment</i> Pagos</a>
-                <a class="mdl-navigation__link" href="/movements" routerLinkActive="active"><i class="material-icons">compare_arrows</i> Movimientos</a>
-                <a class="mdl-navigation__link" href="/settings" routerLinkActive="active"><i class="material-icons">build</i> Configuraciones</a>
-                <a class="mdl-navigation__link" href="/help" routerLinkActive="active"><i class="material-icons">help_outline</i> Ayuda</a>
-                <a class="mdl-navigation__link" (click)="logout()"><i class="material-icons">arrow_forward</i> Salir</a>
+                <a class="mdl-navigation__link white" href="/rewards" routerLinkActive="active"><i class="material-icons">loyalty</i> Recompensas</a>
+                <a class="mdl-navigation__link white" href="payment" routerLinkActive="active"><i class="material-icons">payment</i> Pagos</a>
+                <a class="mdl-navigation__link white" href="/movements" routerLinkActive="active"><i class="material-icons">compare_arrows</i> Movimientos</a>
+                <!-- <a class="mdl-navigation__link white" href="/settings" routerLinkActive="active"><i class="material-icons">build</i> Configuración</a> -->
+                <a class="mdl-navigation__link white" href="/help" routerLinkActive="active"><i class="material-icons">help_outline</i> Ayuda</a>
+                <a class="mdl-navigation__link white" (click)="logout()"><i class="material-icons">arrow_forward</i> Salir</a>
             </nav>
         </div>
     </header>
@@ -62,10 +63,10 @@
               <i class="material-icons">compare_arrows</i>
               <span class="drawer-text">Movimientos</span>
             </a>
-            <a class="mdl-navigation__link" href="/settings" routerLinkActive="active">
+            <!-- <a class="mdl-navigation__link" href="/settings" routerLinkActive="active">
               <i class="material-icons">build</i>
-              <span class="drawer-text">Configuraciones</span>
-            </a>
+              <span class="drawer-text">Configuración</span>
+            </a> -->
             <a class="mdl-navigation__link" href="/help" routerLinkActive="active">
               <i class="material-icons">help_outline</i>
               <span class="drawer-text">Ayuda</span>
