@@ -4,41 +4,35 @@
       <br>
       <label id="title">Recibes &nbsp;&nbsp; - &nbsp;&nbsp; Pagas</label><br><br>
       <label id="left" #left style="font-size:18px;font-weight:bold;"> </label>
+      <div class="phone-spacer"></div>
       <label id="right" #right style="font-size:18px;font-weight:bold;"> </label>
     </div>
   </div>
   <div class="">
     <form >
       <div class="mdl-grid">
-
         <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col mdl-cell--4-col text-center">
+          <div class="spacer-div"></div>
           <p class = "infoText">¿Cuánto te falta?</p>
         </div>
         <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col mdl-cell--4-col text-center">
           <div class="slider-box">
-            <!--<i id = "less" class="material-icons circleIcon" >remove_circle</i>-->
-            <!--<input id="sliderCalc" class="mdl-slider mdl-js-slider" type="range" min="50" max="500" step = "50" value="150" tabindex="0" #value1>-->
-            <!--<i id ="more" class="material-icons circleIcon" >add_circle</i>-->
             <div id="wrapper">
-              <!-- <div class="first"> <i class="material-icons circleIcon">remove_circle</i></div> -->
               <div class="second"> <br> <div id="sliderMoney" ></div> </div>
-              <!-- <div class="third"> <i class="material-icons circleIcon">add_circle</i> </div> -->
             </div>
           </div>
         </div>
         <br><br>
         <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col mdl-cell--4-col text-center">
+          <div class="spacer-div"></div>
+          <div class="spacer-div"></div>
           <p class = "infoText">¿Cuando lo pagas?</p>
           <div class="slider-box">
-            <!--<i id = "less" class="material-icons circleIcon">remove_circle</i>-->
-            <!--<input id="sliderCalc" class="mdl-slider mdl-js-slider" type="range" min="1" max="7" step = "1" value="5" tabindex="0" #value2>-->
-            <!--<i id="more" class="material-icons circleIcon">add_circle</i>-->
             <div id="wrapper" style="justify-content: center; display:center;">
-              <!-- <div class="first"> <i class="material-icons circleIcon">remove_circle</i>&nbsp;&nbsp;&nbsp;</div> -->
               <div class="second"> <br> <div id="sliderTime" type="range"></div> </div>
-              <!-- <div class="third"> <i class="material-icons circleIcon">add_circle</i> </div> -->
             </div>
           </div>
+          <div class="spacer-div"></div>
         </div>
       </div>
     </form>
@@ -49,14 +43,19 @@
     <button id = "submitLoan" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" (click) = "submitLoan()">
       Solicitar
     </button>
-     <!--
-      <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
-        <i class="material-icons">add</i>
-      </button>-->
+    <div class="spacer-div"></div>
+    <div class="spacer-div"></div>
   </div>
 </div>
 <div class="demo-card-wide mdl-card mdl-shadow--2dp" id = "levelCard">
   <div align="center" style="padding-top: 15px;">
-    <img src="assets/images/Trophy_Icon.svg" width="50%" alt=""  style="background-color:rgba(0, 0, 0, 0.05); border-radius: 50%;"/>
+    <a href="/rewards">
+      <img src="assets/images/Trophy_Icon.svg" width="50%" alt=""  style="background-color:rgba(0, 0, 0, 0.05); border-radius: 50%;"/>
+    </a>
+    <div class="spacer-div"></div>
+    <div class="spacer-div"></div>
+    Recompensas
   </div>
 </div>
+<div class="spacer-div"></div>
+<div class="spacer-div"></div>

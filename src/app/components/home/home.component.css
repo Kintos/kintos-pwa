@@ -131,3 +131,21 @@
   float:left;
   width: 10%;
 }
+.phone-spacer{
+  display: none;
+}
+
+@media (max-width: 340px){
+  #left{
+      margin-right:0px;
+  }
+
+  #right{
+      margin-left:0px;
+  }
+
+  .phone-spacer{
+    height: 16px;
+    display: block;
+  }
+}
