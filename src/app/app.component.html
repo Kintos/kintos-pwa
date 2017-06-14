@@ -1,18 +1,21 @@
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">        
+        <div class="mdl-layout__header-row">
             <span class="mdl-layout-title" style="color:#fff">
                 <img src="../assets/images/logo-48.png" alt="logo" width="40">
                 Kintos
-            </span>        
+            </span>
             <div class="mdl-layout-spacer" *ngIf="isLoggedIn">
                 <p style="color:#fff; font-family:'overpass'" align="right">
                     50
                     <img src="../assets/images/KintosCoin_Icon.svg" alt="Tu nivel" width="50px" align="right"/>
                 </p>
-            </div>        
+            </div>
             <nav class="mdl-navigation mdl-layout--large-screen-only" style="color:#fff; font-family:'overpass'" *ngIf="isLoggedIn">
-                <a class="mdl-navigation__link" href="/"><i class="material-icons">home</i> Inicio</a>
+                <a class="mdl-navigation__link" href="/">
+                  <i class="material-icons">home</i>
+                  <span class="drawer-text">Inicio</span>
+                </a>
                 <a class="mdl-navigation__link" href="/rewards" routerLinkActive="active"><i class="material-icons">loyalty</i> Recompensas</a>
                 <a class="mdl-navigation__link" href="payment" routerLinkActive="active"><i class="material-icons">payment</i> Pagos</a>
                 <a class="mdl-navigation__link" href="/movements" routerLinkActive="active"><i class="material-icons">compare_arrows</i> Movimientos</a>
@@ -24,18 +27,54 @@
     </header>
     <div class="mdl-layout__drawer">
         <!--<span class="mdl-layout-title">Kintos</span>-->
-        <div class="image">
-            <img src="./assets/images/umbrella.jpg" alt="Background" width="100%" />
-        </div> 
+        <div class="drawer-bg">
+          <div class="opacity-mask">
+            <div class="spacer-div"></div>
+            <div class="spacer-div"></div>
+            <div class="user-circle text-center bg--accent white mdl-shadow--2dp">
+              J
+            </div>
+            <div class="user-info light">
+              <div class="white">
+                Jorge Cuevas
+              </div>
+              <div class="white">
+                Nivel: Master Jarcor
+              </div>
+            </div>
+          </div>
+        </div>
         <nav class="mdl-navigation">
             <span *ngIf="isLoggedIn">
-            <a class="mdl-navigation__link" href="/"><i class="material-icons">home</i> Inicio</a>
-            <a class="mdl-navigation__link" href="/rewards" routerLinkActive="active"><i class="material-icons">loyalty</i> Recompensas</a>
-            <a class="mdl-navigation__link" href="/payment" routerLinkActive="active"><i class="material-icons">payment</i> Pagos</a>
-            <a class="mdl-navigation__link" href="/movements" routerLinkActive="active"><i class="material-icons">compare_arrows</i> Movimientos</a>
-            <a class="mdl-navigation__link" href="/settings" routerLinkActive="active"><i class="material-icons">build</i> Configuraciones</a>
-            <a class="mdl-navigation__link" href="/help" routerLinkActive="active"><i class="material-icons">help_outline</i> Ayuda</a>
-            <a class="mdl-navigation__link" (click)="logout()"><i class="material-icons">arrow_forward</i> Salir</a>
+            <a class="mdl-navigation__link" href="/">
+              <i class="material-icons">home</i>
+              <span class="drawer-text">Inicio</span>
+            </a>
+            <a class="mdl-navigation__link" href="/rewards" routerLinkActive="active">
+              <i class="material-icons">loyalty</i>
+              <span class="drawer-text">Recompensas</span>
+            </a>
+            <a class="mdl-navigation__link" href="/payment" routerLinkActive="active">
+              <i class="material-icons">payment</i>
+              <span class="drawer-text">Pagos</span>
+            </a>
+            <a class="mdl-navigation__link" href="/movements" routerLinkActive="active">
+              <i class="material-icons">compare_arrows</i>
+              <span class="drawer-text">Movimientos</span>
+            </a>
+            <a class="mdl-navigation__link" href="/settings" routerLinkActive="active">
+              <i class="material-icons">build</i>
+              <span class="drawer-text">Configuraciones</span>
+            </a>
+            <a class="mdl-navigation__link" href="/help" routerLinkActive="active">
+              <i class="material-icons">help_outline</i>
+              <span class="drawer-text">Ayuda</span>
+            </a>
+            <hr class="drawer-divider">
+            <a class="mdl-navigation__link" (click)="logout()">
+              <i class="material-icons">arrow_forward</i>
+              <span class="drawer-text">Salir</span>
+            </a>
             </span>
         </nav>
     </div>
