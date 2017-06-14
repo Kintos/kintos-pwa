@@ -20,10 +20,10 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/10.0.0/nouislider.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/10.0.0/nouislider.css" />
-  
+
   <link rel="stylesheet" href="./assets/bower_components/sweetalert/dist/sweetalert.css" />
   <script src="./assets/bower_components/sweetalert/dist/sweetalert.min.js"></script>
-  
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/card/2.3.0/card.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/card/2.3.0/card.js"> </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/card/2.3.0/jquery.card.min.js"></script>
@@ -50,7 +50,7 @@
       $(document).ready(function(){
 
         if(document.URL.slice(-1) == "/"){
-        
+
         function calculateInterest(amount, days){
           var totalInterest = .020 * days
           return amount * (1 + totalInterest)
@@ -70,7 +70,7 @@
                 currentDate.setDate(startDate.getDate() + i);
                 aryDates.push(DayAsString(currentDate.getDay()) + ", " + currentDate.getDate() + " " + MonthAsString(currentDate.getMonth()) + " " + currentDate.getFullYear());
             }
-            
+
             return aryDates;
         }
 
@@ -89,7 +89,7 @@
             month[9]="Octubre";
             month[10]="Noviembre";
             month[11]="Diciembre";
-            
+
             return month[monthIndex];
         }
 
@@ -102,7 +102,7 @@
             weekdays[4] = "Jueves";
             weekdays[5] = "Viernes";
             weekdays[6] = "Sabado";
-            
+
             return weekdays[dayIndex];
         }
 
@@ -117,7 +117,7 @@
 
         noUiSlider.create(slider, {
           start: [ 200 ],
-          connect : true,
+          connect : [true, false],
            range: {
               'min': 50,
               '10%': 100,
@@ -140,7 +140,7 @@
 
         noUiSlider.create(slider2, {
           start: [ 5 ],
-          connect:true,
+          connect : [true, false],
           range: {
             'min': 1,
             '15%': 2,
@@ -177,7 +177,7 @@
           width: 260, // optional — default 350px
         });
       }
-  });      
+  });
   </script>
   <script>
     if (navigator.serviceWorker) {

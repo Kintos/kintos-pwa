@@ -77,3 +77,16 @@ body {
                 transform: scale3D(0, 0, 1);
       }
     }
+
+/*Slider CSS*/
+    #sliderMoney .noUi-connect {
+      background: #FF9800 !important;
+    }
+
+    #sliderTime .noUi-connect {
+      background: #615095 !important;
+    }
+
+    .text-center{
+      text-align: center !important;
+    }
