@@ -5,7 +5,8 @@ import {FirebaseObjectFactoryOpts} from "angularfire2/interfaces";
 
 @Injectable()
 export class AuthService {
-public messages: FirebaseListObservable<any>;
+  
+  public messages: FirebaseListObservable<any>;
   public users: FirebaseListObservable<any>;
   public displayName: string;
   public email: string;

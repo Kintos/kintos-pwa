@@ -5,49 +5,23 @@
   </div>
   <div class="mdl-tabs__panel is-active" id="restaurantes-panel">
     <ul class="demo-list-three mdl-list">
-      <li class="mdl-list__item mdl-list__item--three-line" *ngFor="let item of (items |async); let i = index">
-        <span class="mdl-list__item-primary-content">
-          <i class="material-icons mdl-list__item-avatar">person</i>
-          <span>{{ item.name }}</span>
-          <span class="mdl-list__item-text-body">
-            {{item.brief}}
+      <span *ngFor="let item of (items |async); let i = index">
+        <li class="mdl-list__item mdl-list__item--three-line" >
+          <span class="mdl-list__item-primary-content">
+            <!--<i class="material-icons mdl-list__item-avatar">person</i>-->
+            <img src="{{item.logo}}" class="mdl-list__item-avatar" width="60px"/>
+            <span>{{ item.name }}</span>
+            <span class="mdl-list__item-text-body">
+              {{item.brief}}
+            </span>
           </span>
-        </span>
-        <span class="mdl-list__item-secondary-content">
-          <input type="image" (click) = "showModal(i);" class="button_rewards" src="../assets/images/KintosCoin_Icon.svg">
-        </span>
-      </li>
-
-      <li class="mdl-list__item mdl-list__item--three-line">
-        <span class="mdl-list__item-primary-content">
-          <i class="material-icons  mdl-list__item-avatar">person</i>
-          <span>STARBUCKS COFFEE</span>
-          <span class="mdl-list__item-text-body">
-            $20.00 MXN en tu siguiente café
-            lun-sab
+          <span class="mdl-list__item-secondary-content">
+            <input type="image" (click) = "showModal(i);" class="button_rewards" src="../assets/images/KintosCoin_Icon.svg">
           </span>
-        </span>
+        </li>
+        <hr>
+       </span>
 
-        <span class="mdl-list__item-secondary-content">
-          <input type="image" (click) = "showModal();" class="button_rewards" src="../assets/images/KintosCoin_Icon.svg">
-        </span>
-
-      </li>
-      <hr>
-      <li class="mdl-list__item mdl-list__item--three-line">
-        <span class="mdl-list__item-primary-content">
-          <i class="material-icons  mdl-list__item-avatar">person</i>
-          <span>STARBUCKS COFFEE</span>
-          <span class="mdl-list__item-text-body">
-            $10.00 MXN en tu siguiente café
-            lun-sab
-          </span>
-        </span>
-        <span class="mdl-list__item-secondary-content">
-          <input type="image" (click) = "showModal();" class="button_rewards" src="../assets/images/KintosCoin_Icon.svg">
-        </span>
-      </li>
-      <hr>
     </ul>
   </div>
   <div class="mdl-tabs__panel" id="powerup-panel">
