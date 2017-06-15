@@ -5,20 +5,19 @@
   </div>
   <div class="mdl-tabs__panel is-active" id="restaurantes-panel">
     <ul class="demo-list-three mdl-list">
-      <li class="mdl-list__item mdl-list__item--three-line">
+      <li class="mdl-list__item mdl-list__item--three-line" *ngFor="let item of (items |async); let i = index">
         <span class="mdl-list__item-primary-content">
           <i class="material-icons mdl-list__item-avatar">person</i>
-          <span>CAFÉ DE CORDOBA</span>
+          <span>{{ item.name }}</span>
           <span class="mdl-list__item-text-body">
-            Un café americano gratis <br>
-            lun - sab
+            {{item.brief}}
           </span>
         </span>
         <span class="mdl-list__item-secondary-content">
-          <input type="image" (click) = "showModal();" class="button_rewards" src="../assets/images/KintosCoin_Icon.svg">
+          <input type="image" (click) = "showModal(i);" class="button_rewards" src="../assets/images/KintosCoin_Icon.svg">
         </span>
       </li>
-      <hr>
+
       <li class="mdl-list__item mdl-list__item--three-line">
         <span class="mdl-list__item-primary-content">
           <i class="material-icons  mdl-list__item-avatar">person</i>
@@ -53,13 +52,9 @@
   </div>
   <div class="mdl-tabs__panel" id="powerup-panel">
     <ul>
-      <li>Eddard- dead</li>
-      <li>Catelyn</li>
-      <li>Robb</li>
-      <li>Sansa</li>
-      <li>Brandon</li>
-      <li>Arya</li>
-      <li>Rickon</li>
+      <li *ngFor="let item of items | async">
+        {{ item.name }}
+      </li>
     </ul>
   </div>
 </div>
