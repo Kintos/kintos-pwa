@@ -4,7 +4,7 @@
 // import {ViewChild} from '@angular/core';
 import {Component, OnInit, AfterViewChecked, ElementRef, ViewChild} from '@angular/core';
 import { AuthService } from "../../services/auth.service";
-import {FirebaseListObservable} from "angularfire2";
+import {AngularFire, AuthProviders, AuthMethods, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2';
 import { LoanRequestService } from "../../services/loan-request.service";
 @Component({
     moduleId : module.id,
@@ -16,9 +16,16 @@ import { LoanRequestService } from "../../services/loan-request.service";
 export class HomeComponent { @ViewChild('scrollMe') private myScrollContainer: ElementRef;
   public newMessage: string;
   public messages: FirebaseListObservable<any>;
+  public userAvailable:any;
 
-  constructor(public afService: AuthService, public insertLoanService: LoanRequestService) {
+  constructor(public af: AngularFire, public afService: AuthService, public insertLoanService: LoanRequestService) {
     this.messages = this.afService.messages;
+    this.af.auth.subscribe(
+      (auth) => {
+        if (auth != null) {
+          this.userAvailable = this.af.database.object('/registeredUsers/'+auth.uid+'/loan')
+        }
+      });
   }
 
   ngOnInit() {}
@@ -56,12 +63,8 @@ export class HomeComponent { @ViewChild('scrollMe') private myScrollContainer: E
      let loan = (document.getElementById("left") as HTMLLabelElement).textContent;
      let toPay = (document.getElementById("right") as HTMLLabelElement).textContent;
      let expDate = (document.getElementById("date") as HTMLLabelElement).textContent;
+     let askedDate = String (new Date())
 
-    console.log(loan)
-    console.log(toPay)
-    console.log(expDate)
-
-    this.insertLoanService.insertLoanToDB(loan, toPay, expDate);
-
+     this.insertLoanService.insertLoanToDB(loan, toPay, expDate, askedDate);
   }
 }
