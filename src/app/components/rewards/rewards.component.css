@@ -40,3 +40,9 @@ hr {
 #restaurant:active {
   color: yellow;
 }
+
+.reward {
+  border-bottom: 0.2px;
+  border-color:  rgba(0, 0, 0, 0.25);
+  border-bottom-style: solid;
+}
