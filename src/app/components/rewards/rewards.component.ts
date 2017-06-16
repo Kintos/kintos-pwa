@@ -33,7 +33,7 @@ export class RewardsComponent {
       swal({
       title: this.info[i].name ,
       text: this.info[i].description,
-      imageUrl: "./assets/images/logo-72.png",
+      imageUrl: this.info[i].logo,
       showCancelButton: true,
       confirmButtonColor: "#86C25C",
       confirmButtonText: "Comprar",
@@ -49,4 +49,5 @@ export class RewardsComponent {
       brief: String;
       description: String;
       price: Number;
+      logo: String;
   }

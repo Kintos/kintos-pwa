@@ -6,9 +6,8 @@
   <div class="mdl-tabs__panel is-active" id="restaurantes-panel">
     <ul class="demo-list-three mdl-list">
       <span *ngFor="let item of (items |async); let i = index">
-        <li class="mdl-list__item mdl-list__item--three-line" >
+        <li class="mdl-list__item mdl-list__item--three-line reward" >
           <span class="mdl-list__item-primary-content">
-            <!--<i class="material-icons mdl-list__item-avatar">person</i>-->
             <img src="{{item.logo}}" class="mdl-list__item-avatar" width="60px"/>
             <span>{{ item.name }}</span>
             <span class="mdl-list__item-text-body">
@@ -19,7 +18,6 @@
             <input type="image" (click) = "showModal(i);" class="button_rewards" src="../assets/images/KintosCoin_Icon.svg">
           </span>
         </li>
-        <hr>
        </span>
     </ul>
   </div>
