@@ -116,6 +116,9 @@
 
 #wrapper {
   clear:both;
+  justify-content: center; 
+  display:center; 
+  margin:5px;
 }
 .first {
   float:left;
