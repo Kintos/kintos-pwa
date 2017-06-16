@@ -27,15 +27,15 @@ export class LoanRequestService {
         snapshots.forEach(snapshot => {
           // console.log(snapshot.key, snapshot.val());
           if(String(snapshot.val().loan)=="active"){
-            console.log("loan can be asked again!")
+            console.log("loan cant be asked again!")
             return;
           } else {
-            console.log(this.us)
+            // console.log(this.us)
             this.us.set("active");
           }
             // console.log(this.us.get("loan"));
            swal({
-            title: "Gracias "+ String(snapshot.val() + "!"),
+            title: "¡Gracias "+ String(snapshot.val() + "!"),
             text: "Recibimos tu solicitud y en breve te avisaremos cuando tengas el dinero en tu cuenta",
             imageUrl: "./assets/images/logo-48.png",
             confirmButtonColor: "#86C25C",
@@ -44,8 +44,6 @@ export class LoanRequestService {
           });
         });
     })
-
-    
     
     // console.log("loan sent!" + askedDate)
     this.loans.push({
