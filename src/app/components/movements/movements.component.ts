@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+import {  AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { Subject } from 'rxjs/Subject';
+import { AngularFire } from 'angularfire2';
 
 @Component({
    moduleId: module.id,
@@ -10,19 +11,16 @@ import { Subject } from 'rxjs/Subject';
 })
 
 export class MovementsComponent {
-  items: FirebaseListObservable<any[]>;
-  sizeSubject: Subject<any>;
-  
-  constructor(db: AngularFireDatabase) {
-    this.sizeSubject = new Subject();
-    this.items = db.list('/registeredUsers', {
-      query: {
-        //orderByChild: 'size',
-        //equalTo: this.sizeSubject
-      }
-    });
-  }
-  filterBy(size: string) {
-    this.sizeSubject.next(size); 
+  loans: FirebaseListObservable<any[]>;
+
+  constructor(public af: AngularFire, db: AngularFireDatabase) {
+    this.af.auth.subscribe(
+      (auth) => {
+        if (auth != null) {
+          console.log(auth.uid);
+          this.loans = this.af.database.list('/loans/' + auth.uid);
+        }
+      });
+    console.log(this.loans);
   }
 }

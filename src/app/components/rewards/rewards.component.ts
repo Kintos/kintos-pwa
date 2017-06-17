@@ -12,12 +12,14 @@ declare var swal: any;
 
 export class RewardsComponent {
     items: FirebaseListObservable<any[]>;
+    powerups: FirebaseListObservable<any[]>;
     info: Reward[] = [];
 
     constructor(db: AngularFireDatabase){
       //this.title = "Sticky";
       //this.description = "10% de descuento en tu Subway <br> Solo en ITESM Campus Guadalajara <br> - No aplica con otras promociones <br>- No aplica en subway del día <br>Valido hasta 19 de Agosto del 2017 <br> 50 <img style = 'width: 50px; height:50px;'src = './assets/images/KintosCoin_Icon.svg'>";
       this.items = db.list('/rewards');
+      this.powerups = db.list('/powerup');
       db.list('/rewards', { preserveSnapshot: true})
         .subscribe(snapshots=>{
         snapshots.forEach(snapshot => {

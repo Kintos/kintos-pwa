@@ -22,9 +22,18 @@
     </ul>
   </div>
   <div class="mdl-tabs__panel" id="powerup-panel">
-    <ul>
-      <li *ngFor="let item of items | async">
-        {{ item.name }}
+    <ul class = "mdl-list">
+      <li *ngFor="let power of (powerups | async); let i = index" class = "mdl-list__item mdl-list__item--three-line reward">
+        <span class="mdl-list__item-primary-content">
+            <img src="{{power.logo}}" class="mdl-list__item-avatar" width="60px"/>
+            <span>{{ power.name }}</span>
+            <span class="mdl-list__item-text-body">
+              {{power.brief}}
+            </span>
+          </span>
+          <span class="mdl-list__item-secondary-content">
+            <input type="image" (click) = "showModal(i);" class="button_rewards" src="../assets/images/KintosCoin_Icon.svg">
+          </span>
       </li>
     </ul>
   </div>

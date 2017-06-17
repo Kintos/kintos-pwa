@@ -1,5 +1,14 @@
- <ul>
-    <li *ngFor="let item of items | async">
-      {{ item.email }}
-    </li>
+<div class="mdl-tabs__panel" id="powerup-panel">
+  <ul class = "mdl-list">
+    <li *ngFor="let loan of loans | async" class = "mdl-list__item mdl-list__item--three-line movements">
+      <span class="mdl-list__item-primary-content">
+      <span>{{ loan.status }}</span>
+        <span class="mdl-list__item-text-body">
+          Prestamo pedido el {{ loan.askedDate }} con el monto de {{loan.loan}} <br>
+          Pagó programado para el {{ loan.expDate }} el monto de {{ loan.toPay }}
+        </span>
+      </span>
+
+      </li>
   </ul>
+</div>
