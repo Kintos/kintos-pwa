@@ -41,9 +41,7 @@ export class AppComponent {
             this.afService.displayName = auth.auth.email;
             this.afService.email = auth.auth.email;
           }
-
           this.isLoggedIn = true;
-         
           //this.router.navigate(['']);
         }
       }
