@@ -9,7 +9,7 @@ import {AngularFire, AuthProviders, AuthMethods, FirebaseListObservable, Firebas
 import { LoanRequestService } from "../../services/loan-request.service";
 import { FirebaseService } from "../../services/firebase.service";
 
-declare var firebase : any;
+// declare var firebase : any;
 
 @Component({
     moduleId : module.id,
@@ -54,19 +54,7 @@ export class HomeComponent { @ViewChild('scrollMe') private myScrollContainer: E
   }
 
   ngOnInit() { 
-   var database = firebase.database();
-  //  console.log(database)
-    firebase.ref('/registeredUsers/xvKDxHWqMlgvMBsV3GyvL8v0rz93').child.once('value'), (snapshot) => {
-      var isActive = snapshot.val().loan;
-      console.log(isActive)
-      console.log(this.isAvailable)
-      // this.setAvailability.bind(isActive);
-      if(String(isActive) == "inactive"){
-        this.isAvailable = true;
-      }else{
-        this.isAvailable = false;
-      }
-    };
+  
   }
 
   // ngAfterViewChecked() {
@@ -98,11 +86,45 @@ export class HomeComponent { @ViewChild('scrollMe') private myScrollContainer: E
   //     return true;
   // }
 
+
+  MonthAsString(monthIndex) {
+        var d=new Date();
+        var month=new Array();
+        month[0]="Enero";
+        month[1]="Febrero";
+        month[2]="Marzo";
+        month[3]="Abril";
+        month[4]="Mayo";
+        month[5]="Junio";
+        month[6]="Julio";
+        month[7]="Agosto";
+        month[8]="Septiembre";
+        month[9]="Octubre";
+        month[10]="Noviembre";
+        month[11]="Diciembre";
+
+        return month[monthIndex];
+    }
+
+    DayAsString(dayIndex) {
+        var weekdays = new Array(7);
+        weekdays[0] = "Domingo";
+        weekdays[1] = "Lunes";
+        weekdays[2] = "Martes";
+        weekdays[3] = "Miercoles";
+        weekdays[4] = "Jueves";
+        weekdays[5] = "Viernes";
+        weekdays[6] = "Sabado";
+
+        return weekdays[dayIndex];
+    }
+    
   submitLoan(){
      let loan = (document.getElementById("left") as HTMLLabelElement).textContent;
      let toPay = (document.getElementById("right") as HTMLLabelElement).textContent;
      let expDate = (document.getElementById("date") as HTMLLabelElement).textContent;
-     let askedDate = String (new Date())
+     let currentDate = new Date()
+     let askedDate = String (this.DayAsString(currentDate.getDay()) + ", " + currentDate.getDate() + " " + this.MonthAsString(currentDate.getMonth()) + " " + currentDate.getFullYear())
 
      this.insertLoanService.insertLoanToDB(loan, toPay, expDate, askedDate);
   }
