@@ -13,6 +13,8 @@ import { AuthService } from "./services/auth.service";
 export class AppComponent {
   public isLoggedIn: boolean;
   public url:string;
+  public headerUser: string;
+
   constructor(public afService: AuthService, private router: Router) {
     // This asynchronously checks if our user is logged it and will automatically
     // redirect them to the Login page when the status changes.
@@ -38,12 +40,11 @@ export class AppComponent {
             this.afService.email = auth.google.email;
           }
           else {
+            this.headerUser = "mdl-layout--fixed-drawer";
             this.afService.displayName = auth.auth.email;
             this.afService.email = auth.auth.email;
           }
-
           this.isLoggedIn = true;
-         
           //this.router.navigate(['']);
         }
       }

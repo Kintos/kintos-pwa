@@ -30,9 +30,9 @@ export class HomeComponent { @ViewChild('scrollMe') private myScrollContainer: E
 
   ngOnInit() {}
 
-  ngAfterViewChecked() {
-    this.scrollToBottom();
-  }
+  // ngAfterViewChecked() {
+  //   this.scrollToBottom();
+  // }
 
   scrollToBottom(): void {
     try {
