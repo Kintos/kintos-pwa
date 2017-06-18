@@ -26,9 +26,6 @@ export class RewardsComponent {
           this.info.push(snapshot.val());
         });
       })
-
-
-      console.log(this.info);
     }
 
     showModal(i){

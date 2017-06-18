@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { AuthService } from "./services/auth.service";
+import { FirebaseService } from "./services/firebase.service";
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'app-root',
@@ -14,11 +16,16 @@ export class AppComponent {
   public isLoggedIn: boolean;
   public url:string;
   public headerUser: string;
+  public user: object;
 
-  constructor(public afService: AuthService, private router: Router) {
+  constructor(private afAuth: AngularFireAuth, 
+              private afService: AuthService, 
+              private router: Router,
+              private fbService: FirebaseService) {
     // This asynchronously checks if our user is logged it and will automatically
     // redirect them to the Login page when the status changes.
     // This is just a small thing that Firebase does that makes it easy to use.
+    
     this.afService.af.auth.subscribe(
       (auth) => {
         if(auth == null) {
@@ -40,11 +47,12 @@ export class AppComponent {
             this.afService.email = auth.google.email;
           }
           else {
+            this.isLoggedIn = true;
+            this.user = this.fbService.getUser();
             this.headerUser = "mdl-layout--fixed-drawer";
-            this.afService.displayName = auth.auth.email;
+            this.afService.displayName = auth.auth.displayName;
             this.afService.email = auth.auth.email;
           }
-          this.isLoggedIn = true;
           //this.router.navigate(['']);
         }
       }
@@ -55,4 +63,6 @@ export class AppComponent {
     this.afService.logout();
     document.location.href = "/login"
   }
+
+ 
 }
