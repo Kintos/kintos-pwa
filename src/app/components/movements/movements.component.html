@@ -1,14 +1,37 @@
-<div class="mdl-tabs__panel" id="powerup-panel">
-  <ul class = "mdl-list">
-    <li *ngFor="let loan of loans | async" class = "mdl-list__item mdl-list__item--three-line movements">
-      <span class="mdl-list__item-primary-content">
-      <span>{{ loan.status }}</span>
-        <span class="mdl-list__item-text-body">
-          Prestamo pedido el {{ loan.askedDate }} con el monto de {{loan.loan}} <br>
-          Pagó programado para el {{ loan.expDate }} el monto de {{ loan.toPay }}
-        </span>
-      </span>
+<div class="flex-box strong" id="detail-panel">
+  <div class="flex-70--no-margin">
+  Detalles
+  </div>
+  <div class="flex-30--no-margin" style="text-align:center;">
+    Obtenidos
+  </div>
+</div>
+<div class="flex-box" id="powerup-panel" *ngFor="let loan of loans | async">
+    <div class="flex-40--no-margin">
+      <p> Pagado: <br>
+        <strong> {{ loan.expDate }} </strong> <br>
+        Pedido: <br>
+        {{ loan.askedDate }}
+      </p>
 
-      </li>
-  </ul>
+    </div>
+    <div class="flex-30--no-margin">
+      <p>
+      <br>
+      <strong>{{ loan.toPay }} </strong> <br>
+      <br>
+      {{ loan.loan }}
+      </p>
+    </div>
+    <div class="flex-30--no-margin" >
+      <!---<div class="mdl-grid mdl-cell--stretch">
+        <div class="mdl-cell--middle mdl-cell--12-col" style="text-align:right;">
+          <strong style="margin-right:8px; margin-left:8px;">10</strong> <img class="button_transaction" src="../assets/images/KintosCoin.png">
+        </div>
+      </div> -->
+      <p class = "text-center">
+      <br>
+      <strong style="margin-right:4px; margin-left:20px;">10</strong> <img class="button_transaction" src="../assets/images/KintosCoin.png">
+      </p>
+    </div>
 </div>
