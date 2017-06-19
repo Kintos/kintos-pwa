@@ -25,7 +25,7 @@ export class RewardsComponent {
         snapshots.forEach(snapshot => {
           this.info.push(snapshot.val());
         });
-      })
+      });
     }
 
     showModal(i){

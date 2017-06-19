@@ -16,7 +16,7 @@ export class LoanRequestService {
   public noKintos: number;
 
   constructor(public af: AngularFire) {
-    
+
     this.af.auth.subscribe(
       (auth) => {
         if (auth != null) {
@@ -24,13 +24,13 @@ export class LoanRequestService {
           this.loans = this.af.database.list('/loans/' + auth.uid);
           this.us = this.af.database.object('/registeredUsers/'+auth.uid+'/loan')
           this.kintos = this.af.database.object('/registeredUsers/'+auth.uid+'/kintos')
-          this.getKintos()
+          this.getKintos();
         }
       });
   }
 
   ngOnInit(){
-    
+
   }
 
   getKintos(){
@@ -60,7 +60,7 @@ export class LoanRequestService {
                 askedDate: askedDate,
                 status: "To Approve"
               });
-              
+
               swal({
                 title: "¡Gracias!",
                 text: "Recibimos tu solicitud y en breve te avisaremos cuando tengas el dinero en tu cuenta",
@@ -72,9 +72,9 @@ export class LoanRequestService {
 
             }
           }
-        }); // end of forEach        
-    }); // end for subscribe 
-    listen.unsubscribe();   
+        }); // end of forEach
+    }); // end for subscribe
+    listen.unsubscribe();
     // this.user.unsubscribe()
   }
 }

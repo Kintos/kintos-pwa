@@ -21,71 +21,30 @@ import { FirebaseService } from "../../services/firebase.service";
 export class HomeComponent { @ViewChild('scrollMe') private myScrollContainer: ElementRef;
   // public newMessage: string;
   // public messages: FirebaseListObservable<any>;
+  public infoLoaded = false;
+  public isAvailable = true;
+  public info: String;
+  public user: FirebaseObjectObservable<any>;
 
-  public isAvailable:boolean;
-
-  constructor(public af: AngularFire, 
-              public afService: AuthService, 
-              public insertLoanService: LoanRequestService, 
+  constructor(public af: AngularFire,
+              public afService: AuthService,
+              public insertLoanService: LoanRequestService,
               public firebaseService: FirebaseService) {
-    
-    // console.log(this.isAvailable);        
+    // console.log(this.isAvailable);
 
-    //  this.af.auth.subscribe(     
-    //     (auth) => {
-    //       if (auth != null) {
-    //         this.available = this.af.database.object('/registeredUsers/'+auth.uid+'/loan')
-    //         this.loanAvailable = this.availableState();
-    //       }
-    //     });
-
-    //     this.availableState();
-
-    // console.log(this.insertLoanService.loanAvailable())
-    // this.loanAvailable = this.insertLoanService.loanAvailable();
-    // this.messages = this.afService.messages;
-    
-    // this.af.auth.subscribe(
-    //   (auth) => {
-    //     if (auth != null) {
-    //       this.userAvailable = this.af.database.object('/registeredUsers/'+auth.uid+'/loan')
-    //     }
-    //   });
+     this.af.auth.subscribe(
+        (auth) => {
+          if (auth != null) {
+            this.user = this.af.database.object('/registeredUsers/' + auth.uid + '/loan');
+            this.infoLoaded = true;
+            console.log(this.user);
+          }
+        });
   }
 
-  ngOnInit() { 
-  
+  ngOnInit() {
+
   }
-
-  // ngAfterViewChecked() {
-  //   this.scrollToBottom();
-  // }
-
-  // scrollToBottom(): void {
-  //   try {
-  //     this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
-  //   } catch(err) { }
-  // }
-
-  // sendMessage(){
-  //   this.afService.sendMessage(this.newMessage);
-  //   this.newMessage = '';
-  // }
-
-  // isYou(email) {
-  //   if(email == this.afService.email)
-  //     return true;
-  //   else
-  //     return false;
-  // }
-
-  // isMe(email) {
-  //   if(email == this.afService.email)
-  //     return false;
-  //   else
-  //     return true;
-  // }
-
 
   MonthAsString(monthIndex) {
         var d=new Date();
@@ -118,12 +77,12 @@ export class HomeComponent { @ViewChild('scrollMe') private myScrollContainer: E
 
         return weekdays[dayIndex];
     }
-    
+
   submitLoan(){
      let loan = (document.getElementById("left") as HTMLLabelElement).textContent;
      let toPay = (document.getElementById("right") as HTMLLabelElement).textContent;
      let expDate = (document.getElementById("date") as HTMLLabelElement).textContent;
-     let currentDate = new Date()
+     let currentDate = new Date();
      let askedDate = String (this.DayAsString(currentDate.getDay()) + ", " + currentDate.getDate() + " " + this.MonthAsString(currentDate.getMonth()) + " " + currentDate.getFullYear())
 
      this.insertLoanService.insertLoanToDB(loan, toPay, expDate, askedDate);

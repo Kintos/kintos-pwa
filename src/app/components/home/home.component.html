@@ -1,63 +1,72 @@
-<div class="mdl-grid">
-  <div class="mdl-cell mdl-cell--6-col center-block mdl-card mdl-shadow--4dp">
-    <div class="mdl-grid ">
-      <div class = "mdl-cell mdl-cell--12-col slider-box">
+<div *ngIf = "infoLoaded;  else elseBlock">
+  <div class="mdl-grid" *ngIf = "isAvailable; else unavailable">
+    <div class="mdl-cell mdl-cell--6-col center-block mdl-card mdl-shadow--4dp">
+      <div class="mdl-grid ">
+        <div class = "mdl-cell mdl-cell--12-col slider-box">
+          <br>
+          <label id="title">Recibes &nbsp;&nbsp; - &nbsp;&nbsp; Pagas</label><br><br>
+          <label id="left" #left style="font-size:18px;font-weight:bold;"> </label>
+          <div class="phone-spacer"></div>
+          <label id="right" #right style="font-size:18px;font-weight:bold;"> </label>
+        </div>
+      </div>
+      <div>
+        <form >
+          <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col mdl-cell--4-col text-center">
+              <div class="spacer-div"></div>
+              <p class = "infoText">¿Cuánto te falta?</p>
+            </div>
+            <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col mdl-cell--4-col text-center">
+              <div class="slider-box">
+                <div id="wrapper">
+                  <div class="second"> <br> <div id="sliderMoney" ></div> </div>
+                </div>
+              </div>
+            </div>
+            <br><br>
+            <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col mdl-cell--4-col text-center">
+              <div class="spacer-div"></div>
+              <div class="spacer-div"></div>
+              <p class = "infoText">¿Cuando lo pagas?</p>
+              <div class="slider-box">
+                <div id="wrapper" style="">
+                  <div class="second"> <br> <div id="sliderTime" type="range"></div> </div>
+                  <br><br><br>
+                  <label id="date"></label>
+                </div>
+              </div>
+              <div class="spacer-div"></div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="mdl-card__actions mdl-card--border" align="center">
+        <!-- Accent-colored raised button with ripple -->
         <br>
-        <label id="title">Recibes &nbsp;&nbsp; - &nbsp;&nbsp; Pagas</label><br><br>
-        <label id="left" #left style="font-size:18px;font-weight:bold;"> </label>
-        <div class="phone-spacer"></div>
-        <label id="right" #right style="font-size:18px;font-weight:bold;"> </label>
+        <button id = "submitLoan" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" (click) = "submitLoan()">
+          Solicitar
+        </button>
+        <div class="spacer-div"></div>
+        <div class="spacer-div"></div>
       </div>
     </div>
-    <div>
-      <form >
-        <div class="mdl-grid">
-          <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col mdl-cell--4-col text-center">
-            <div class="spacer-div"></div>
-            <p class = "infoText">¿Cuánto te falta?</p>
-          </div>
-          <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col mdl-cell--4-col text-center">
-            <div class="slider-box">
-              <div id="wrapper" style="">
-                <div class="second"> <br> <div id="sliderMoney" ></div> </div>
-              </div>
-            </div>
-          </div>
-          <br><br>
-          <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col mdl-cell--4-col text-center">
-            <div class="spacer-div"></div>
-            <div class="spacer-div"></div>
-            <p class = "infoText">¿Cuando lo pagas?</p>
-            <div class="slider-box">
-              <div id="wrapper" style="">
-                <div class="second"> <br> <div id="sliderTime" type="range"></div> </div>
-                <br><br><br>
-                <label id="date"></label>
-              </div>
-            </div>
-            <div class="spacer-div"></div>
-          </div>
-        </div>
-      </form>
-    </div>
-    <div class="mdl-card__actions mdl-card--border" align="center">
-      <!-- Accent-colored raised button with ripple -->
-      <br>
-      <button id = "submitLoan" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" (click) = "submitLoan()">
-        Solicitar
-      </button>
-      <div class="spacer-div"></div>
-      <div class="spacer-div"></div>
-    </div>
-  </div>
-  <div class="mdl-cell mdl-cell--6-col center-block mdl-card mdl-shadow--2dp mdl-cell--top" id = "levelCard">
-    <div align="center" style="padding-top: 15px;">
-      <a href="/rewards">
-        <img src="assets/images/Trophy_Icon.svg" width="200" alt=""  style="background-color:rgba(0, 0, 0, 0.05); border-radius: 50%;"/>
-      </a>
-      <h3>
-        Recompensas
-      </h3>
+    <div class="mdl-cell mdl-cell--6-col center-block mdl-card mdl-shadow--2dp mdl-cell--top" id = "levelCard">
+      <div align="center" style="padding-top: 15px;">
+        <a href="/rewards">
+          <img src="assets/images/Trophy_Icon.svg" width="200" alt=""  style="background-color:rgba(0, 0, 0, 0.05); border-radius: 50%;"/>
+        </a>
+        <h3>
+          Recompensas
+        </h3>
+      </div>
     </div>
   </div>
 </div>
+<ng-template #elseBlock>
+  Cargando...
+</ng-template>
+
+<ng-template #unavailable>
+  No hay prestamo disponible
+</ng-template>
