@@ -1,40 +1,98 @@
-<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-  <div class="mdl-tabs__tab-bar">
-    <a href="#restaurantes-panel" id="restaurant" class="mdl-tabs__tab is-active tab_bar">Restaurantes</a>
-    <a href="#powerup-panel" id= "powerup" class="mdl-tabs__tab tab_bar">Power-Up</a>
-  </div>
-  <div class="mdl-tabs__panel is-active" id="restaurantes-panel">
-    <ul class="demo-list-three mdl-list">
-      <span *ngFor="let item of (items |async); let i = index">
-        <li class="mdl-list__item mdl-list__item--three-line reward" >
+<!--<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+
+  <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect" id="marketplace">
+
+    <div class="mdl-tabs__tab-bar">
+      <a href="#restaurantes-panel" id="restaurant" class="mdl-tabs__tab is-active tab_bar">Restaurantes</a>
+      <a href="#powerup-panel" id= "powerup" class="mdl-tabs__tab tab_bar">Power-Up</a>
+    </div>
+    <div class="mdl-tabs__panel is-active" id="restaurantes-panel">
+      <ul class="demo-list-three mdl-list">
+        <span *ngFor="let item of (items |async); let i = index">
+          <li class="mdl-list__item mdl-list__item--three-line reward" >
+            <span class="mdl-list__item-primary-content">
+              <img src="{{item.logo}}" class="mdl-list__item-avatar" width="60px"/>
+              <span>{{ item.name }}</span>
+              <span class="mdl-list__item-text-body">
+                {{item.brief}}
+              </span>
+            </span>
+            <span class="mdl-list__item-secondary-content">
+              <input type="image" (click) = "showModal(i);" class="button_rewards" src="../assets/images/KintosCoin_Icon.svg">
+            </span>
+          </li>
+        </span>
+      </ul>
+    </div>
+    <div class="mdl-tabs__panel" id="powerup-panel">
+      <ul class = "mdl-list">
+        <li *ngFor="let power of (powerups | async); let i = index" class = "mdl-list__item mdl-list__item--three-line reward">
           <span class="mdl-list__item-primary-content">
-            <img src="{{item.logo}}" class="mdl-list__item-avatar" width="60px"/>
-            <span>{{ item.name }}</span>
-            <span class="mdl-list__item-text-body">
-              {{item.brief}}
+              <img src="{{power.logo}}" class="mdl-list__item-avatar" width="60px"/>
+              <span>{{ power.name }}</span>
+              <span class="mdl-list__item-text-body">
+                {{power.brief}}
+              </span>
             </span>
-          </span>
-          <span class="mdl-list__item-secondary-content">
-            <input type="image" (click) = "showModal(i);" class="button_rewards" src="../assets/images/KintosCoin_Icon.svg">
-          </span>
+            <span class="mdl-list__item-secondary-content">
+              <input type="image" (click) = "showModal(i);" class="button_rewards" src="../assets/images/KintosCoin_Icon.svg">
+            </span>
         </li>
-       </span>
-    </ul>
+      </ul>
+    </div>
+    
   </div>
-  <div class="mdl-tabs__panel" id="powerup-panel">
-    <ul class = "mdl-list">
-      <li *ngFor="let power of (powerups | async); let i = index" class = "mdl-list__item mdl-list__item--three-line reward">
-        <span class="mdl-list__item-primary-content">
-            <img src="{{power.logo}}" class="mdl-list__item-avatar" width="60px"/>
-            <span>{{ power.name }}</span>
-            <span class="mdl-list__item-text-body">
-              {{power.brief}}
+
+  <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect" id="wallet">
+    
+  </div>
+  
+  <div class="mdl-tabs__tab-bar ">
+    <a href="#marketplace" id="marketplace" class="mdl-tabs__tab is-active tab_bar">Recompensas</a>
+    <a href="#wallet" id="wallet" class="mdl-tabs__tab tab_bar">Cartera <i class="material-icons">account_balance_wallet</i></a>
+  </div>
+
+</div>-->
+
+<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+  
+<div class="mdl-tabs__tab-bar">
+          <a href="#restaurantes-panel" id="restaurant" class="mdl-tabs__tab is-active tab_bar">Restaurantes</a>
+          <a href="#powerup-panel" id= "powerup" class="mdl-tabs__tab tab_bar">Power-Up</a>
+        </div>
+        <div class="mdl-tabs__panel is-active" id="restaurantes-panel">
+          <ul class="demo-list-three mdl-list">
+            <span *ngFor="let item of (items |async); let i = index">
+              <li class="mdl-list__item mdl-list__item--three-line reward" >
+                <span class="mdl-list__item-primary-content">
+                  <img src="{{item.logo}}" class="mdl-list__item-avatar" width="60px"/>
+                  <span>{{ item.name }}</span>
+                  <span class="mdl-list__item-text-body">
+                    {{item.brief}}
+                  </span>
+                </span>
+                <span class="mdl-list__item-secondary-content">
+                  <input type="image" (click) = "showModal(i);" class="button_rewards" src="../assets/images/KintosCoin_Icon.svg">
+                </span>
+              </li>
             </span>
-          </span>
-          <span class="mdl-list__item-secondary-content">
-            <input type="image" (click) = "showModal(i);" class="button_rewards" src="../assets/images/KintosCoin_Icon.svg">
-          </span>
-      </li>
-    </ul>
-  </div>
+          </ul>
+        </div>
+        <div class="mdl-tabs__panel" id="powerup-panel">
+          <ul class = "mdl-list">
+            <li *ngFor="let power of (powerups | async); let i = index" class = "mdl-list__item mdl-list__item--three-line reward">
+              <span class="mdl-list__item-primary-content">
+                  <img src="{{power.logo}}" class="mdl-list__item-avatar" width="60px"/>
+                  <span>{{ power.name }}</span>
+                  <span class="mdl-list__item-text-body">
+                    {{power.brief}}
+                  </span>
+                </span>
+                <span class="mdl-list__item-secondary-content">
+                  <input type="image" (click) = "showModal(i);" class="button_rewards" src="../assets/images/KintosCoin_Icon.svg">
+                </span>
+            </li>
+          </ul>
+        </div>
+        
 </div>
