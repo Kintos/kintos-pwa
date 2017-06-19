@@ -10,7 +10,7 @@ declare var swal: any;
 export class LoanRequestService {
 
   public loans: FirebaseListObservable<any>;
-  public user;
+  public user: any;
   public us: any;
   public kintos: any;
   public noKintos: number;

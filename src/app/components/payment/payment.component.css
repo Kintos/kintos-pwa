@@ -1,58 +1,4 @@
-.demo-card-square.mdl-card {
-  display: block;
-  width: 100%;
-}
-.demo-card-square > .mdl-card__title {
-  color: #fff;
-  background: bottom right 15% no-repeat #615095;
-}
-.demo-card-wide > .mdl-card__menu {
-  color: #fff;
-}
-.demo-container {
-    width: 100%;
-    max-width: 500px;
-    /*margin: 50px auto;*/
-}
-form {
-    /*margin: 30px;*/
-}
-input {
-    width: 200px;
-    padding: 8px;
-    margin: 10px auto;
-    display: block;
-    border-bottom: 0px;
-}
-
-input {
-  /*margin: 40px 25px;*/
-  width: 200px;
-  display: block;
-  border: none;
-  padding: 10px 0;
-  border-bottom: solid 1px #615095;
-  transition: all 0.3s cubic-bezier(.64,.09,.08,1);
-  background: linear-gradient(to bottom, rgba(255,255,255,0) 96%, #615095 4%);
-  background-position: -200px 0;
-  background-size: 200px 100%;
-  background-repeat: no-repeat;
-  color: darken(#1abc9c, 20%);
-  input:focus, valid {
-    box-shadow: none;
-    outline: none;
-    background-position: 0 0;
-    &::-webkit-input-placeholder {
-      color: $color;
-      font-size: 11px;
-      transform: translateY(-20px);
-      visibility: visible !important;
-    }
-  }
-}
-
-
-#submitLoan {
+#buttonSubmit {
   background-color:#8CC9F0;
   border-radius: 7px;
   height: 45px;
@@ -60,3 +6,22 @@ input {
   font-size: 18px;
   color: white;
 }
+
+/*input:focus { outline:none; }*/
+
+.mdl-textfield__input{
+ padding: 10px;
+}
+
+.mdl-textfield{
+  margin: 5px;
+}
+
+/*#button {
+  background-color:#8CC9F0;
+  border-radius: 7px;
+  height: 45px;
+  width: 70%;
+  font-size: 18px;
+  color: white;
+}*/

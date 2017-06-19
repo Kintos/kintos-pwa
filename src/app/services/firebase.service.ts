@@ -4,7 +4,9 @@ import { AngularFire, AngularFireDatabase, FirebaseListObservable, FirebaseObjec
 @Injectable()
 export class FirebaseService {
   userInfo : FirebaseObjectObservable <User>;
-  // user: User[] = [];
+  card : any;
+
+  userData: User;
 
   constructor(private af: AngularFire, private db: AngularFireDatabase) { }
 
@@ -15,8 +17,25 @@ export class FirebaseService {
     return this.userInfo;
   }
 
-  getCard(){
+  readUser(){
+    this.af.auth.subscribe((auth) => {
+        this.db.object('/registeredUsers/'+auth.uid+'/', {preserveSnapshot:true})
+           .subscribe(snapshots=>{
+              this.userData = snapshots.val();
+              console.log(this.userData.loan);
+              return this.userData
+        });
+      }); 
+  }
 
+  getCard(){
+     this.af.auth.subscribe((auth) => {
+       this.card = this.db.object('/card/'+auth.uid, { preserveSnapshot: true })
+     })
+  }
+
+  saveCard(){
+    
   }
 
   getMovements(){
@@ -24,9 +43,10 @@ export class FirebaseService {
   }
 }
 
-
 interface User{
-  $key?:string;
-  email?: string;
-  name?: string;
+  $key? : string,
+  name? : string,
+  email? : string,
+  kintos? : number,
+  loan? : string
 }
