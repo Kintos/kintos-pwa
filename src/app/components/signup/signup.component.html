@@ -29,15 +29,15 @@
 			</div>
 			<form action="#" (submit)="register($event, name.value, email.value, password.value)">
         <div class="mdl-card__supporting-text">
-            <div class="mdl-textfield mdl-js-textfield">
-              <input #name class="mdl-textfield__input" type="text" id="name" placeholder="Nombre completo (Como tu tarjeta)" />
-              <!--<label class="mdl-textfield__label" for="username">Nombre completo (Como tu tarjeta de debito)</label>-->
+            <div class="mdl-textfield mdl-js-textfield  mdl-textfield--floating-label">
+              <input #name class="mdl-textfield__input" type="text" id="name"/>
+              <label class="mdl-textfield__label" type="text" for="name">Nombre completo</label>
             </div>
-            <div class="mdl-textfield mdl-js-textfield">
+            <div class="mdl-textfield mdl-js-textfield  mdl-textfield--floating-label">
               <input #email class="mdl-textfield__input" type="email" id="email" placeholder="Correo electronico @itesm.mx"/>
               <!--<label class="mdl-textfield__label" for="username">Correo electronico @itesm.mx</label>-->
             </div>
-            <div class="mdl-textfield mdl-js-textfield">
+            <div class="mdl-textfield mdl-js-textfield  mdl-textfield--floating-label">
               <input #password class="mdl-textfield__input" type="password" id="password"  placeholder="Contrasena"/>
               <!--<label class="mdl-textfield__label" for="userpass">Contrasena</label>-->
             </div>

@@ -57,3 +57,7 @@ interface User{
   kintos? : number,
   loan? : string
 }
+
+interface Card{
+  
+}
