@@ -1,0 +1,16 @@
+.faq {
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.text_faq {
+  font-size: 17px;
+  text-align: justify;
+}
+
+.title_faq {
+  padding: 15px;
+  background-color: #8CC9F0;
+  color: #fff;
+}

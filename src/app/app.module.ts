@@ -19,6 +19,7 @@ import { HelpComponent } from './components/help/help.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { Collapse } from './components/movements/collapse.directive';
 
 import { routing } from './app.routing';
 
@@ -41,7 +42,8 @@ export const firebaseConfig = {
     HelpComponent,
     SettingsComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    Collapse
   ],
   imports: [
     BrowserModule,

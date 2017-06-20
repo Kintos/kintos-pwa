@@ -7,7 +7,7 @@ import { AngularFire } from 'angularfire2';
    moduleId: module.id,
    selector: 'movements',
    templateUrl: './movements.component.html',
-   styleUrls: ['./movements.component.css']
+   styleUrls: ['./movements.component.css'],
 })
 
 export class MovementsComponent {
