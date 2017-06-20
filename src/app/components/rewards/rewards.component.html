@@ -40,13 +40,13 @@
         </li>
       </ul>
     </div>
-    
+
   </div>
 
   <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect" id="wallet">
-    
+
   </div>
-  
+
   <div class="mdl-tabs__tab-bar ">
     <a href="#marketplace" id="marketplace" class="mdl-tabs__tab is-active tab_bar">Recompensas</a>
     <a href="#wallet" id="wallet" class="mdl-tabs__tab tab_bar">Cartera <i class="material-icons">account_balance_wallet</i></a>
@@ -55,7 +55,7 @@
 </div>-->
 
 <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-  
+
 <div class="mdl-tabs__tab-bar">
           <a href="#restaurantes-panel" id="restaurant" class="mdl-tabs__tab is-active tab_bar">Recompensas</a>
           <a href="#powerup-panel" id= "powerup" class="mdl-tabs__tab tab_bar">Cartera</a>
@@ -80,8 +80,7 @@
         </div>
         <div class="mdl-tabs__panel" id="powerup-panel">
           <ul class = "mdl-list" >
-            
-            <li *ngFor="let power of (powerups | async); let i = index" class = "mdl-list__item mdl-list__item--three-line reward">
+            <li *ngFor="let power of (powerups | async);" class = "mdl-list__item mdl-list__item--three-line reward">
               <span class="mdl-list__item-primary-content">
                   <img src="{{power.logo}}" class="mdl-list__item-avatar" width="60px"/>
                   <span>{{ power.name }}</span>
@@ -89,11 +88,8 @@
                     {{power.brief}}
                   </span>
                 </span>
-                <span class="mdl-list__item-secondary-content">
-                  <input type="image" (click) = "showModal(i);" class="button_rewards" src="../assets/images/KintosCoin_Icon.svg">
-                </span>
             </li>
           </ul>
         </div>
-        
+
 </div>
