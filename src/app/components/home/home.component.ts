@@ -30,10 +30,10 @@ export class HomeComponent { @ViewChild('scrollMe') private myScrollContainer: E
      this.af.auth.subscribe(
         (auth) => {
           if (auth != null) {
-            this.af.database.object('/registeredUsers/' + auth.uid + '/loan', { preserveSnapshot: true })
+            this.af.database.object('/registeredUsers/' + auth.uid + '/hasLoan', { preserveSnapshot: true })
             .subscribe(snapshot => {
               this.loanActive = snapshot.val();
-              console.log(this.loanActive);
+              // console.log(this.loanActive);
             });
           }
         });
@@ -75,15 +75,15 @@ export class HomeComponent { @ViewChild('scrollMe') private myScrollContainer: E
         return weekdays[dayIndex];
     }
 
-  submitLoan(){
-     if(this.loanActive === 'active') {
-      swal('Prestamo pendiente de pago', 'Para poder disponer de más prestamos, realiza tu pago pendiente', 'error');
-     }else {
-      this.approvedLoad();
-     }
-  }
+  // submitLoan(){
+  //    if(this.loanActive === 'active') {
+  //     swal('Prestamo pendiente de pago', 'Para poder disponer de más prestamos, realiza tu pago pendiente', 'error');
+  //    }else {
+  //     this.approvedLoad();
+  //    }
+  // }
 
-  approvedLoad(){
+  submitLoan(){
     let loan = (document.getElementById("left") as HTMLLabelElement).textContent;
     let toPay = (document.getElementById("right") as HTMLLabelElement).textContent;
     let expDate = (document.getElementById("date") as HTMLLabelElement).textContent;

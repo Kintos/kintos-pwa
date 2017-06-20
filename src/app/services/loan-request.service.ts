@@ -22,7 +22,7 @@ export class LoanRequestService {
         if (auth != null) {
           this.user = this.af.database.list('/registeredUsers/'+auth.uid, { preserveSnapshot: true })
           this.loans = this.af.database.list('/loans/' + auth.uid);
-          this.us = this.af.database.object('/registeredUsers/'+auth.uid+'/loan')
+          this.us = this.af.database.object('/registeredUsers/'+auth.uid+'/hasLoan')
           this.kintos = this.af.database.object('/registeredUsers/'+auth.uid+'/kintos')
           this.getKintos();
         }
@@ -44,12 +44,13 @@ export class LoanRequestService {
   insertLoanToDB(loan, toPay, expDate, askedDate){
     let listen = this.user.subscribe(snapshots=>{
         snapshots.forEach(snapshot => {
-          console.log(snapshot.key, snapshot.val());
-          if(String(snapshot.key) == "loan"){
+          // console.log(snapshot.key, snapshot.val());
+          if(String(snapshot.key) == "hasLoan"){
             if(String(snapshot.val())=="active"){
               //console.log("loan cant be asked again!")
               return;
             } else {
+
               this.us.set("active");
               this.kintos.set(this.noKintos);
 
@@ -61,7 +62,7 @@ export class LoanRequestService {
                 status: "To Approve"
               });
 
-              swal({
+               swal({
                 title: "¡Gracias!",
                 text: "Recibimos tu solicitud y en breve te avisaremos cuando tengas el dinero en tu cuenta",
                 imageUrl: "./assets/images/logo-48.png",
@@ -69,6 +70,8 @@ export class LoanRequestService {
                 confirmButtonText: "Aceptar",
                 html:true
               });
+
+             return;
 
             }
           }
