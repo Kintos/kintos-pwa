@@ -20,7 +20,7 @@ export class HomeComponent { @ViewChild('scrollMe') private myScrollContainer: E
   // public messages: FirebaseListObservable<any>;
   public loanActive: String;
   public info: String;
-  public showCard = true;
+  public showCard = false;
   lastPage: any;
 
   constructor(public af: AngularFire,
@@ -44,7 +44,7 @@ export class HomeComponent { @ViewChild('scrollMe') private myScrollContainer: E
         });
       this.lastPage = document.referrer;
       console.log(this.lastPage);
-      if (this.lastPage.indexof('/register') !== -1){
+      if (this.lastPage.indexOf('/register') !== -1){
         swal('Bienvenido', 'Como regalo de primer ingreso revisa tu cartera para revisar tu recompensa');
       }
   }
