@@ -40,28 +40,35 @@ export class PaymentComponent {
     }
 
     saveCard(){
-        let number = btoa((document.getElementById("number") as HTMLInputElement).value);
-        let name   = btoa((document.getElementById("name") as HTMLInputElement).value);
-        let expiry = btoa((document.getElementById("expiry") as HTMLInputElement).value);
-        let cvc    = btoa((document.getElementById("cvc") as HTMLInputElement).value);
+        let number = ((document.getElementById("number") as HTMLInputElement).value);
+        let name   = ((document.getElementById("name") as HTMLInputElement).value);
+        let expiry = ((document.getElementById("expiry") as HTMLInputElement).value);
+        let cvc    = ((document.getElementById("cvc") as HTMLInputElement).value);
 
         if(number=="" || number.length<16){
             swal("Ups!","Ingresa el numero completo", "error")
             return;
         }
 
-        if(name=="" || name.length < 3){
+        if(name=="" || name.length<6){
             swal("Ups!","Ingresa tu nombre completo", "error")
+            return;
         }
 
-        if(expiry=="" || expiry.length<6){
+        if(expiry=="" || expiry.length<10){
             swal("Ups!","Ingresa el formato de fecha correcto", "error")
             return;
         }
 
-        if(cvc=="" || cvc.length < 3){
+        if(cvc=="" || cvc.length<3){
             swal("Ups!","Ingresa el CVV correcto", "error")
+            return;
         }
+
+        number = btoa(number)
+        name   = btoa(name)
+        expiry = btoa(expiry)
+        cvc    = btoa(cvc)
 
         this.fs.saveCard(number, name, expiry, cvc)
         swal("Listo!","Tu tarjeta ha sido actualizada", "success")
