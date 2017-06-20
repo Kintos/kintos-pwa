@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { FirebaseService } from '../../services/firebase.service';
 
 declare var Card: any;
+declare var Hashes: any;
+declare var swal: any;
 
 @Component({
    moduleId: module.id,
@@ -19,6 +21,7 @@ export class PaymentComponent {
     }
 
     ngOnInit() {
+    
        new Card({
           form: document.querySelector('form'),
           container: '.card-wrapper',
@@ -37,11 +40,31 @@ export class PaymentComponent {
     }
 
     saveCard(){
-        let number = (document.getElementById("number") as HTMLInputElement).value;
-        let name = (document.getElementById("name") as HTMLInputElement).value;
-        let expiry = (document.getElementById("expiry") as HTMLInputElement).value;
-        let cvc = (document.getElementById("cvc") as HTMLInputElement).value;
-        console.log("Imhere!"+number+name+expiry+cvc)
+        let number = btoa((document.getElementById("number") as HTMLInputElement).value);
+        let name   = btoa((document.getElementById("name") as HTMLInputElement).value);
+        let expiry = btoa((document.getElementById("expiry") as HTMLInputElement).value);
+        let cvc    = btoa((document.getElementById("cvc") as HTMLInputElement).value);
+
+        if(number=="" || number.length<16){
+            swal("Ups!","Ingresa el numero completo", "error")
+            return;
+        }
+
+        if(name=="" || name.length < 3){
+            swal("Ups!","Ingresa tu nombre completo", "error")
+        }
+
+        if(expiry=="" || expiry.length<6){
+            swal("Ups!","Ingresa el formato de fecha correcto", "error")
+            return;
+        }
+
+        if(cvc=="" || cvc.length < 3){
+            swal("Ups!","Ingresa el CVV correcto", "error")
+        }
+
+        this.fs.saveCard(number, name, expiry, cvc)
+        swal("Listo!","Tu tarjeta ha sido actualizada", "success")
     }
 
 }

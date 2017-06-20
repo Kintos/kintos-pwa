@@ -5,7 +5,6 @@ import { AngularFire, AngularFireDatabase, FirebaseListObservable, FirebaseObjec
 export class FirebaseService {
   userInfo : FirebaseObjectObservable <User>;
   card : any;
-
   userData: User;
 
   constructor(private af: AngularFire, private db: AngularFireDatabase) { }
@@ -34,8 +33,16 @@ export class FirebaseService {
      })
   }
 
-  saveCard(){
-    
+  saveCard(number, name, expiry, cvc){
+    this.af.auth.subscribe((auth) => {
+      this.card = this.db.object('/card/'+auth.uid)
+      this.card.set({
+        number:number,
+        name:name,
+        expiry: expiry,
+        cvc:cvc
+      })
+    })
   }
 
   getMovements(){
