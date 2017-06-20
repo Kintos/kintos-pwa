@@ -116,8 +116,8 @@
 
 #wrapper {
   clear:both;
-  justify-content: center; 
-  display:center; 
+  justify-content: center;
+  display:center;
   margin:15px;
 }
 .first {
@@ -136,6 +136,23 @@
 }
 .phone-spacer{
   display: none;
+}
+
+.pagoPendiente {
+  margin: auto;
+  width: 90%;
+  margin-top: 15px;
+}
+
+.pagoTitulo {
+  text-align: center;
+  background-color: red;
+  color: white;
+}
+
+.pagoTexto {
+  font-size: 18px;
+  line-height: 2.5;
 }
 
 @media (max-width: 340px){

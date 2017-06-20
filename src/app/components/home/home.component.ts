@@ -20,6 +20,8 @@ export class HomeComponent { @ViewChild('scrollMe') private myScrollContainer: E
   // public messages: FirebaseListObservable<any>;
   public loanActive: String;
   public info: String;
+  public showCard = true;
+  lastPage: any;
 
   constructor(public af: AngularFire,
               public afService: AuthService,
@@ -33,10 +35,18 @@ export class HomeComponent { @ViewChild('scrollMe') private myScrollContainer: E
             this.af.database.object('/registeredUsers/' + auth.uid + '/loan', { preserveSnapshot: true })
             .subscribe(snapshot => {
               this.loanActive = snapshot.val();
+              if (this.loanActive === 'active') {
+                this.showCard = true;
+              }
               console.log(this.loanActive);
             });
           }
         });
+      this.lastPage = document.referrer;
+      console.log(this.lastPage);
+      if (this.lastPage.indexof('/register') !== -1){
+        swal('Bienvenido', 'Como regalo de primer ingreso revisa tu cartera para revisar tu recompensa');
+      }
   }
 
   ngOnInit() {
