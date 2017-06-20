@@ -83,7 +83,7 @@ export class RewardsComponent {
           console.log(RewardsComponent.info[i].price);
           console.log(RewardsComponent.userKintos);
           console.log(RewardsComponent.info[i].price === RewardsComponent.userKintos);
-          if (RewardsComponent.info[i].price === RewardsComponent.userKintos) {
+          if (RewardsComponent.info[i].price <= RewardsComponent.userKintos) {
             RewardsComponent.newCupon(i);
             const newKintos = RewardsComponent.reduceKintos(RewardsComponent.info[i].price, RewardsComponent.userKintos);
             RewardsComponent.kintos.set(newKintos);
