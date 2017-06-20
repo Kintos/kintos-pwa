@@ -22,7 +22,7 @@ export class LoanRequestService {
         if (auth != null) {
           this.user = this.af.database.list('/registeredUsers/'+auth.uid, { preserveSnapshot: true })
           this.loans = this.af.database.list('/loans/' + auth.uid);
-          this.us = this.af.database.object('/registeredUsers/'+auth.uid+'/hasLoan')
+          this.us = this.af.database.object('/registeredUsers/'+auth.uid+'/asLoan')
           this.kintos = this.af.database.object('/registeredUsers/'+auth.uid+'/kintos')
           this.getKintos();
         }
@@ -45,9 +45,11 @@ export class LoanRequestService {
     let listen = this.user.subscribe(snapshots=>{
         snapshots.forEach(snapshot => {
           // console.log(snapshot.key, snapshot.val());
-          if(String(snapshot.key) == "hasLoan"){
+          if(String(snapshot.key) == "asLoan"){
             if(String(snapshot.val())=="active"){
               //console.log("loan cant be asked again!")
+              swal("Oops...", "¡Tienes un préstamo activo!", "error");
+
               return;
             } else {
 

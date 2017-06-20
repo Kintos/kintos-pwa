@@ -73,7 +73,7 @@ export class AuthService {
    * @returns {firebase.Promise<void>}
    */
   registerUser(email, password) {
-    console.log(email)
+    // console.log(email)
     return this.af.auth.createUser({
       email: email,
       password: password
@@ -91,7 +91,7 @@ export class AuthService {
       name: name,
       email: email,
       kintos: 10,
-      hasLoan: "inactive"
+      asLoan: "inactive"
     });
   }
 

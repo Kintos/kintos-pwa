@@ -53,8 +53,13 @@
         if(document.URL.slice(-1) == "/"){
 
         function calculateInterest(amount, days){
-          var totalInterest = .020 * days
-          return amount * (1 + totalInterest)
+          if(amount < 300){
+            var totalInterest = .020 * days
+            return amount * (1 + totalInterest)
+          }else{
+            var totalInterest = .015 * days
+            return amount * (1 + totalInterest)
+          }
         }
 
         var formatter = new Intl.NumberFormat('es-MX', {

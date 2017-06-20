@@ -25,12 +25,12 @@ export class HomeComponent { @ViewChild('scrollMe') private myScrollContainer: E
               public afService: AuthService,
               public insertLoanService: LoanRequestService,
               public firebaseService: FirebaseService) {
-    // console.log(this.isAvailable);
+    
 
      this.af.auth.subscribe(
         (auth) => {
           if (auth != null) {
-            this.af.database.object('/registeredUsers/' + auth.uid + '/hasLoan', { preserveSnapshot: true })
+            this.af.database.object('/registeredUsers/' + auth.uid + '/asLoan', { preserveSnapshot: true })
             .subscribe(snapshot => {
               this.loanActive = snapshot.val();
               // console.log(this.loanActive);
