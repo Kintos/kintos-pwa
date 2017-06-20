@@ -1,7 +1,3 @@
-// import { Component, OnInit } from '@angular/core';
-// import { Router } from '@angular/router';
-// //import { FirebaseService } from '../../services/firebase.service';
-// import {ViewChild} from '@angular/core';
 
 import {Component, OnInit, AfterViewChecked, ElementRef, ViewChild} from '@angular/core';
 import { AuthService } from "../../services/auth.service";
@@ -10,6 +6,7 @@ import { LoanRequestService } from "../../services/loan-request.service";
 import { FirebaseService } from "../../services/firebase.service";
 
 // declare var firebase : any;
+declare var swal: any;
 
 @Component({
     moduleId : module.id,
@@ -21,10 +18,8 @@ import { FirebaseService } from "../../services/firebase.service";
 export class HomeComponent { @ViewChild('scrollMe') private myScrollContainer: ElementRef;
   // public newMessage: string;
   // public messages: FirebaseListObservable<any>;
-  public infoLoaded = false;
-  public isAvailable = true;
+  public loanActive: String;
   public info: String;
-  public user: FirebaseObjectObservable<any>;
 
   constructor(public af: AngularFire,
               public afService: AuthService,
@@ -35,9 +30,11 @@ export class HomeComponent { @ViewChild('scrollMe') private myScrollContainer: E
      this.af.auth.subscribe(
         (auth) => {
           if (auth != null) {
-            this.user = this.af.database.object('/registeredUsers/' + auth.uid + '/loan');
-            this.infoLoaded = true;
-            console.log(this.user);
+            this.af.database.object('/registeredUsers/' + auth.uid + '/loan', { preserveSnapshot: true })
+            .subscribe(snapshot => {
+              this.loanActive = snapshot.val();
+              console.log(this.loanActive);
+            });
           }
         });
   }
@@ -79,12 +76,20 @@ export class HomeComponent { @ViewChild('scrollMe') private myScrollContainer: E
     }
 
   submitLoan(){
-     let loan = (document.getElementById("left") as HTMLLabelElement).textContent;
-     let toPay = (document.getElementById("right") as HTMLLabelElement).textContent;
-     let expDate = (document.getElementById("date") as HTMLLabelElement).textContent;
-     let currentDate = new Date();
-     let askedDate = String (this.DayAsString(currentDate.getDay()) + ", " + currentDate.getDate() + " " + this.MonthAsString(currentDate.getMonth()) + " " + currentDate.getFullYear())
+     if(this.loanActive === 'active') {
+      swal('Prestamo pendiente de pago', 'Para poder disponer de más prestamos, realiza tu pago pendiente', 'error');
+     }else {
+      this.approvedLoad();
+     }
+  }
 
-     this.insertLoanService.insertLoanToDB(loan, toPay, expDate, askedDate);
+  approvedLoad(){
+    let loan = (document.getElementById("left") as HTMLLabelElement).textContent;
+    let toPay = (document.getElementById("right") as HTMLLabelElement).textContent;
+    let expDate = (document.getElementById("date") as HTMLLabelElement).textContent;
+    let currentDate = new Date();
+    let askedDate = String (this.DayAsString(currentDate.getDay()) + ", " + currentDate.getDate() + " " + this.MonthAsString(currentDate.getMonth()) + " " + currentDate.getFullYear())
+
+    this.insertLoanService.insertLoanToDB(loan, toPay, expDate, askedDate);
   }
 }
