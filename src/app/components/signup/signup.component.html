@@ -30,19 +30,19 @@
 			<form action="#" (submit)="register($event, name.value, email.value, password.value)">
         <div class="mdl-card__supporting-text">
             <div class="mdl-textfield mdl-js-textfield  mdl-textfield--floating-label">
-              <input #name class="mdl-textfield__input" type="text" id="name" placeholder="Nombre completo"/>
+              <input #name class="mdl-textfield__input" type="text" id="name" placeholder="Nombre completo" required/>
               <!--<label class="mdl-textfield__label" type="text" for="name">Nombre completo</label>-->
             </div>
             <div class="mdl-textfield mdl-js-textfield ">
-              <input #email class="mdl-textfield__input" type="email" id="email" placeholder="Correo electrónico @itesm.mx"/>
+              <input #email class="mdl-textfield__input" type="email" id="email" placeholder="Correo electrónico @itesm.mx" required/>
               <!--<label class="mdl-textfield__label" type="text" for="email"></label>-->
             </div>
             <div class="mdl-textfield mdl-js-textfield ">
-              <input #password class="mdl-textfield__input" type="password" id="password" placeholder="Contraseña" />
+              <input #password class="mdl-textfield__input" type="password" id="password" placeholder="Contraseña" required/>
               <!--<label class="mdl-textfield__label" type="text" for="password">Contraseña</label>-->
             </div>
         </div>
-        <div class="mdl-card__actions mdl-card--border">
+        <div class="mdl-card__actions mdl-card--border" align="center">
           <button id="buttonSubmit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" type="submit">Registrarme</button>
         </div>
 			</form>
