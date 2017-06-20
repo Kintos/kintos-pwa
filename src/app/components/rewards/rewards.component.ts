@@ -51,7 +51,7 @@ export class RewardsComponent {
               .subscribe(snapshot => {
                 RewardsComponent.userKintos = snapshot.val();
               });
-              console.log(auth.uid);
+              // console.log(auth.uid);
           }
       });
 
@@ -87,10 +87,11 @@ export class RewardsComponent {
             RewardsComponent.newCupon(i);
             const newKintos = RewardsComponent.reduceKintos(RewardsComponent.info[i].price, RewardsComponent.userKintos);
             RewardsComponent.kintos.set(newKintos);
+            alert("Hemos agreado la promoción a tu cartera")
             swal('Promoción obtenida', 'Revisa tu cartera para revisar las promociones con las que cuentas', 'success');
           }else {
             console.log("No se esta imprimiendo");
-
+            alert("No tienes suficientes Kintos ")
           }
         }else {
 

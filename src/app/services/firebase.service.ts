@@ -21,7 +21,7 @@ export class FirebaseService {
         this.db.object('/registeredUsers/'+auth.uid+'/', {preserveSnapshot:true})
            .subscribe(snapshots=>{
               this.userData = snapshots.val();
-              console.log(this.userData.loan);
+              // console.log(this.userData.loan);
               return this.userData
         });
       }); 
