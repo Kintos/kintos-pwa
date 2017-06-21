@@ -100,9 +100,9 @@ export class RewardsComponent {
             RewardsComponent.newCupon(i);
             const newKintos = RewardsComponent.reduceKintos(RewardsComponent.info[i].price, RewardsComponent.userKintos);
             RewardsComponent.kintos.set(newKintos);
-            alert("Hemos agreado la promoción a tu cartera");
+            alert("Hemos agregado la promoción a tu cartera");
           }else {
-            console.log("No se esta imprimiendo");
+            // console.log("No se esta imprimiendo");
             alert("No tienes suficientes Kintos ");
           }
         }else {
@@ -113,10 +113,18 @@ export class RewardsComponent {
 
     retriveCupon(i){
       swal({
-        title: RewardsComponent.info[i].name ,
-        text: `${RewardsComponent.info[i].description} ${RewardsComponent.info[i].price}
-        <img style = 'width: 50px; height:50px;'src = './assets/images/KintosCoin_Icon.svg'>` ,
-        imageUrl: RewardsComponent.info[i].logo,
+        // title: RewardsComponent.info[i].name ,
+        // text: `${RewardsComponent.info[i].description} ${RewardsComponent.info[i].price}
+        // <img style = 'width: 50px; height:50px;'src = './assets/images/KintosCoin_Icon.svg'>` ,
+        // imageUrl: RewardsComponent.info[i].logo,
+        // showCancelButton: true,
+        // confirmButtonColor: '#86C25C',
+        // confirmButtonText: 'Utilizar',
+        // cancelButtonText: 'Cancelar',
+        // html: true
+        title: 'Sticky Charles' ,
+        text: '$20 MXN descuento en tarro<br>' ,
+        imageUrl: './assets/images/KintosCoin_Icon.svg',
         showCancelButton: true,
         confirmButtonColor: '#86C25C',
         confirmButtonText: 'Utilizar',

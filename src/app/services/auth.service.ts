@@ -74,6 +74,8 @@ export class AuthService {
    */
   registerUser(email, password) {
     // console.log(email)
+  
+
     return this.af.auth.createUser({
       email: email,
       password: password

@@ -45,7 +45,7 @@ export class HomeComponent { @ViewChild('scrollMe') private myScrollContainer: E
       this.lastPage = document.referrer;
       console.log(this.lastPage);
       if (this.lastPage.indexOf('/register') !== -1){
-        swal('Bienvenido', 'Como regalo de primer ingreso revisa tu cartera para revisar tu recompensa');
+        swal('Bienvenido', 'Como regalo de bienvenida tienes un descuento en tu próxima cerveza, revisa tu cartera en la opción recompensas del menu');
       }
   }
 
