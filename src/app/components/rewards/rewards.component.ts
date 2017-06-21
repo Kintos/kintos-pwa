@@ -24,7 +24,7 @@ export class RewardsComponent {
     static db: AngularFireDatabase;
     static userId: any;
 
-    static cuponList: Reward[];
+    static cuponList: Reward[] = [];
 
     powerups: FirebaseListObservable<any[]>;
     items: FirebaseListObservable<any[]>;
