@@ -14,10 +14,15 @@ declare var swal: any;
 })
 
 export class RewardsComponent {
+
     static userKintos: number;
     static info: Reward[] = [];
     static wallet: FirebaseListObservable<any[]>;
+    static walletDelete: FirebaseObjectObservable<any>;
     static kintos: FirebaseObjectObservable<any[]>;
+    static cuponId: any[] = [];
+    static db: AngularFireDatabase;
+    static userId: any;
 
     powerups: FirebaseListObservable<any[]>;
     items: FirebaseListObservable<any[]>;
@@ -36,17 +41,27 @@ export class RewardsComponent {
       return currentAmount - price;
     }
 
-    static enoughKintos(i){
-
+    static eliminateCupon(i) {
+      RewardsComponent.walletDelete = RewardsComponent.db.object('/wallet/' + RewardsComponent.userId + '/' + RewardsComponent.cuponId[i]);
+      console.log(RewardsComponent.cuponId[i]);
+      RewardsComponent.walletDelete.remove();
     }
 
     constructor(db: AngularFireDatabase, public af: AngularFire){
       this.af.auth.subscribe(
         (auth) => {
           if (auth != null) {
+              RewardsComponent.userId = auth.uid;
+              RewardsComponent.db = this.af.database;
               RewardsComponent.wallet = this.af.database.list('/wallet/' + auth.uid);
               RewardsComponent.kintos = this.af.database.object('/registeredUsers/' + auth.uid + '/kintos');
               this.powerups = db.list('/wallet/' + auth.uid);
+              db.list('/wallet/' + auth.uid,  {preserveSnapshot: true})
+              .subscribe(snapshots => {
+                snapshots.forEach(snapshot => {
+                  RewardsComponent.cuponId.push(snapshot.key);
+                });
+              })
               db.object('/registeredUsers/' + auth.uid + '/kintos', {preserveSnapshot: true})
               .subscribe(snapshot => {
                 RewardsComponent.userKintos = snapshot.val();
@@ -54,6 +69,8 @@ export class RewardsComponent {
               // console.log(auth.uid);
           }
       });
+
+
 
       this.items = db.list('/rewards');
       db.list('/rewards', { preserveSnapshot: true})
@@ -79,19 +96,14 @@ export class RewardsComponent {
       },
       function(isConfirm){
         if (isConfirm) {
-          swal("Here's a message!");
-          console.log(RewardsComponent.info[i].price);
-          console.log(RewardsComponent.userKintos);
-          console.log(RewardsComponent.info[i].price === RewardsComponent.userKintos);
           if (RewardsComponent.info[i].price <= RewardsComponent.userKintos) {
             RewardsComponent.newCupon(i);
             const newKintos = RewardsComponent.reduceKintos(RewardsComponent.info[i].price, RewardsComponent.userKintos);
             RewardsComponent.kintos.set(newKintos);
-            alert("Hemos agreado la promoción a tu cartera")
-            swal('Promoción obtenida', 'Revisa tu cartera para revisar las promociones con las que cuentas', 'success');
+            alert("Hemos agreado la promoción a tu cartera");
           }else {
             console.log("No se esta imprimiendo");
-            alert("No tienes suficientes Kintos ")
+            alert("No tienes suficientes Kintos ");
           }
         }else {
 
@@ -99,8 +111,30 @@ export class RewardsComponent {
       });
     }
 
+    retriveCupon(i){
+      swal({
+        title: RewardsComponent.info[i].name ,
+        text: `${RewardsComponent.info[i].description} ${RewardsComponent.info[i].price}
+        <img style = 'width: 50px; height:50px;'src = './assets/images/KintosCoin_Icon.svg'>` ,
+        imageUrl: RewardsComponent.info[i].logo,
+        showCancelButton: true,
+        confirmButtonColor: '#86C25C',
+        confirmButtonText: 'Utilizar',
+        cancelButtonText: 'Cancelar',
+        html: true
+      },
+      function(isConfirm){
+        if (isConfirm) {
+          alert('Gracias por utilizar tu cupón, disfruta tu recompensa');
+          RewardsComponent.eliminateCupon(i);
+        }else {
+
+        }
+      });
+    }
 
 }
+
   interface Reward {
       name: String;
       brief: String;

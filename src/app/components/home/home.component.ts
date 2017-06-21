@@ -85,20 +85,20 @@ export class HomeComponent { @ViewChild('scrollMe') private myScrollContainer: E
         return weekdays[dayIndex];
     }
 
-  // submitLoan(){
-  //    if(this.loanActive === 'active') {
-  //     swal('Prestamo pendiente de pago', 'Para poder disponer de más prestamos, realiza tu pago pendiente', 'error');
-  //    }else {
-  //     this.approvedLoad();
-  //    }
-  // }
-
   submitLoan(){
+     if(this.loanActive === 'active') {
+      swal('Prestamo pendiente de pago', 'Para poder disponer de más prestamos, realiza tu pago pendiente', 'error');
+     }else {
+      this.approvedLoan();
+     }
+  }
+
+  approvedLoan() {
     let loan = (document.getElementById("left") as HTMLLabelElement).textContent;
     let toPay = (document.getElementById("right") as HTMLLabelElement).textContent;
     let expDate = (document.getElementById("date") as HTMLLabelElement).textContent;
     let currentDate = new Date();
-    let askedDate = String (this.DayAsString(currentDate.getDay()) + ", " + currentDate.getDate() + " " + this.MonthAsString(currentDate.getMonth()) + " " + currentDate.getFullYear())
+    let askedDate = String (this.DayAsString(currentDate.getDay()) + ", " + currentDate.getDate() + " " + this.MonthAsString(currentDate.getMonth()) + " " + currentDate.getFullYear());
     this.insertLoanService.insertLoanToDB(loan, toPay, expDate, askedDate);
   }
 }
