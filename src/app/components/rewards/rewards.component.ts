@@ -24,6 +24,8 @@ export class RewardsComponent {
     static db: AngularFireDatabase;
     static userId: any;
 
+    static cuponList: Reward[];
+
     powerups: FirebaseListObservable<any[]>;
     items: FirebaseListObservable<any[]>;
 
@@ -60,6 +62,7 @@ export class RewardsComponent {
               .subscribe(snapshots => {
                 snapshots.forEach(snapshot => {
                   RewardsComponent.cuponId.push(snapshot.key);
+                  RewardsComponent.cuponList.push(snapshot.val())
                 });
               })
               db.object('/registeredUsers/' + auth.uid + '/kintos', {preserveSnapshot: true})
@@ -113,23 +116,23 @@ export class RewardsComponent {
 
     retriveCupon(i){
       swal({
-        // title: RewardsComponent.info[i].name ,
-        // text: `${RewardsComponent.info[i].description} ${RewardsComponent.info[i].price}
-        // <img style = 'width: 50px; height:50px;'src = './assets/images/KintosCoin_Icon.svg'>` ,
-        // imageUrl: RewardsComponent.info[i].logo,
-        // showCancelButton: true,
-        // confirmButtonColor: '#86C25C',
-        // confirmButtonText: 'Utilizar',
-        // cancelButtonText: 'Cancelar',
-        // html: true
-        title: 'Sticky Charles' ,
-        text: '$20 MXN descuento en tarro<br>' ,
-        imageUrl: './assets/images/KintosCoin_Icon.svg',
+        title: RewardsComponent.cuponList[i].name ,
+        text: `${RewardsComponent.cuponList[i].description} ${RewardsComponent.cuponList[i].price}
+        <img style = 'width: 50px; height:50px;'src = './assets/images/KintosCoin_Icon.svg'>` ,
+        imageUrl: RewardsComponent.cuponList[i].logo,
         showCancelButton: true,
         confirmButtonColor: '#86C25C',
         confirmButtonText: 'Utilizar',
         cancelButtonText: 'Cancelar',
         html: true
+        // title: 'Sticky Charles' ,
+        // text: '$20 MXN descuento en tarro<br>' ,
+        // imageUrl: './assets/images/KintosCoin_Icon.svg',
+        // showCancelButton: true,
+        // confirmButtonColor: '#86C25C',
+        // confirmButtonText: 'Utilizar',
+        // cancelButtonText: 'Cancelar',
+        // html: true
       },
       function(isConfirm){
         if (isConfirm) {
