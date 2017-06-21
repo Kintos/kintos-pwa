@@ -38,7 +38,7 @@ export class HomeComponent { @ViewChild('scrollMe') private myScrollContainer: E
               if (this.loanActive === 'active') {
                 this.showCard = true;
               }
-              console.log(this.loanActive);
+              //console.log(this.loanActive);
             });
           }
         });
@@ -99,7 +99,6 @@ export class HomeComponent { @ViewChild('scrollMe') private myScrollContainer: E
     let expDate = (document.getElementById("date") as HTMLLabelElement).textContent;
     let currentDate = new Date();
     let askedDate = String (this.DayAsString(currentDate.getDay()) + ", " + currentDate.getDate() + " " + this.MonthAsString(currentDate.getMonth()) + " " + currentDate.getFullYear())
-
     this.insertLoanService.insertLoanToDB(loan, toPay, expDate, askedDate);
   }
 }
