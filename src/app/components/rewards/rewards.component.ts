@@ -23,9 +23,7 @@ export class RewardsComponent {
     static cuponId: any[] = [];
     static db: AngularFireDatabase;
     static userId: any;
-
     static cuponList: Reward[] = [];
-
     powerups: FirebaseListObservable<any[]>;
     items: FirebaseListObservable<any[]>;
 
@@ -46,6 +44,7 @@ export class RewardsComponent {
     static eliminateCupon(i) {
       RewardsComponent.walletDelete = RewardsComponent.db.object('/wallet/' + RewardsComponent.userId + '/' + RewardsComponent.cuponId[i]);
       console.log(RewardsComponent.cuponId[i]);
+      console.log(RewardsComponent.cuponId);
       RewardsComponent.walletDelete.remove();
     }
 
@@ -60,16 +59,18 @@ export class RewardsComponent {
               this.powerups = db.list('/wallet/' + auth.uid);
               db.list('/wallet/' + auth.uid,  {preserveSnapshot: true})
               .subscribe(snapshots => {
+                RewardsComponent.cuponId = [];
+                RewardsComponent.cuponList = [];
                 snapshots.forEach(snapshot => {
                   RewardsComponent.cuponId.push(snapshot.key);
-                  RewardsComponent.cuponList.push(snapshot.val())
+                  RewardsComponent.cuponList.push(snapshot.val());
+                  console.log(RewardsComponent.cuponId);
                 });
               })
               db.object('/registeredUsers/' + auth.uid + '/kintos', {preserveSnapshot: true})
               .subscribe(snapshot => {
                 RewardsComponent.userKintos = snapshot.val();
               });
-              // console.log(auth.uid);
           }
       });
 
