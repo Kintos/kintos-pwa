@@ -1,18 +1,19 @@
-<div class="mdl-layout mdl-js-layout  mdl-layout--fixed-header {{headerUser}} mdl-layout--no-desktop-drawer-button">
-    <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
-            <span class="mdl-layout-title white" *ngIf="!isLoggedIn">
+
+<div mdl class="mdl-layout mdl-js-layout mdl-layout--fixed-header {{headerUser}}" *ngIf="isLoggedIn; else elseBlock">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title white" *ngIf="!isLoggedIn">
                 <!--<img src="../assets/images/mainIcon.png" alt="logo" width="40">
                 Kintos-->
             </span>
-            <div class="mdl-layout-spacer"></div>
-            <div class="white" style="position:relative;" align="right" *ngIf="isLoggedIn">
-              <div class="" style="position:absolute;top:16px;left:-16px;">
-                {{ (user | async)?.kintos }} 
-              </div>
-              <img src="../assets/images/KintosCoin_Icon.svg" alt="Tu nivel" width="50px" align="right"/>
-            </div>
-            <!--
+      <div class="mdl-layout-spacer"></div>
+      <div class="white" style="position:relative;" align="right" *ngIf="isLoggedIn">
+        <div class="" style="position:absolute;top:16px;left:-16px;">
+          {{ (user | async)?.kintos }}
+        </div>
+        <img src="../assets/images/KintosCoin_Icon.svg" alt="Tu nivel" width="50px" align="right" />
+      </div>
+      <!--
             <nav class="mdl-navigation mdl-layout--large-screen-only" style="color:#fff; font-family:'overpass'" *ngIf="isLoggedIn">
                 <a class="mdl-navigation__link white" href="/">
                   <i class="material-icons">home</i> Inicio
@@ -24,64 +25,68 @@
                 <a class="mdl-navigation__link white" href="/help" routerLinkActive="active"><i class="material-icons">help_outline</i> Ayuda</a>
                 <a class="mdl-navigation__link white" (click)="logout()"><i class="material-icons">arrow_forward</i> Salir</a>
             </nav>-->
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <!--<span class="mdl-layout-title">Kintos</span>-->
+    <div class="drawer-bg">
+      <div class="opacity-mask">
+        <div class="spacer-div"></div>
+        <div class="spacer-div"></div>
+        <div class="user-circle text-center bg--accent white mdl-shadow--2dp">
+          {{ (user | async)?.name.slice(0,1) }}
         </div>
-    </header>
-    <div class="mdl-layout__drawer">
-        <!--<span class="mdl-layout-title">Kintos</span>-->
-        <div class="drawer-bg">
-          <div class="opacity-mask">
-            <div class="spacer-div"></div>
-            <div class="spacer-div"></div>
-            <div class="user-circle text-center bg--accent white mdl-shadow--2dp">
-                {{ (user | async)?.name.slice(0,1) }}              
-            </div>
-            <div class="user-info light">
-              <div class="white">
-                {{ (user | async)?.name }}
-              </div>
-              <div class="white">
-                {{ (user | async)?.email }} 
-              </div>
-            </div>
+        <div class="user-info light">
+          <div class="white">
+            {{ (user | async)?.name }}
+          </div>
+          <div class="white">
+            {{ (user | async)?.email }}
           </div>
         </div>
-        <nav class="mdl-navigation">
-            <span *ngIf="isLoggedIn">
-            <a class="mdl-navigation__link" href="/">
+      </div>
+    </div>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="/">
               <i class="material-icons">home</i>
               <span class="drawer-text">Inicio</span>
-            </a>
-            <a class="mdl-navigation__link" href="/rewards" routerLinkActive="active">
+      </a>
+      <a class="mdl-navigation__link" href="/rewards" routerLinkActive="active">
               <i class="material-icons">loyalty</i>
               <span class="drawer-text">Recompensas</span>
             </a>
-            <a class="mdl-navigation__link" href="/payment" routerLinkActive="active">
+      <a class="mdl-navigation__link" href="/payment" routerLinkActive="active">
               <i class="material-icons">payment</i>
               <span class="drawer-text">Pago</span>
             </a>
-            <a class="mdl-navigation__link" href="/movements" routerLinkActive="active">
+      <a class="mdl-navigation__link" href="/movements" routerLinkActive="active">
               <i class="material-icons">compare_arrows</i>
               <span class="drawer-text">Movimientos</span>
             </a>
-            <!-- <a class="mdl-navigation__link" href="/settings" routerLinkActive="active">
+      <!-- <a class="mdl-navigation__link" href="/settings" routerLinkActive="active">
               <i class="material-icons">build</i>
               <span class="drawer-text">Configuración</span>
             </a> -->
-            <a class="mdl-navigation__link" href="/help" routerLinkActive="active">
+      <a class="mdl-navigation__link" href="/help" routerLinkActive="active">
               <i class="material-icons">help_outline</i>
               <span class="drawer-text">Ayuda</span>
             </a>
-            <hr class="drawer-divider">
-            <a class="mdl-navigation__link" (click)="logout()">
+      <hr class="drawer-divider">
+      <a class="mdl-navigation__link" (click)="logout()">
               <i class="material-icons">arrow_forward</i>
               <span class="drawer-text">Salir</span>
             </a>
-            </span>
-        </nav>
-    </div>
-    <main class="mdl-layout__content">
-        <div class="page-content">
-            <router-outlet></router-outlet>
-        </div>        
-    </main>
+    </nav>
   </div>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>
+
+<ng-template #elseBlock>
+    <div class="page-content">
+      <router-outlet></router-outlet>
+    </div>
+</ng-template>

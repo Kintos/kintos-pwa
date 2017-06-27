@@ -1,4 +1,4 @@
-<div >
+<header>
   <!-- <div class = 'mdl-card mdl-shadow--4dp pagoPendiente' *ngIf = 'showCard'>
     <div class="mdl-card__title pagoTitulo">
       <h2 class="mdl-card__title-text"> Tienes un prestamo pendiente de pago</h2>
@@ -11,13 +11,12 @@
       <strong> </strong>
     </div>
   </div> -->
-  <div class = 'mdl-card mdl-shadow--4dp countdown'>
+  <div class='mdl-card mdl-shadow--4dp countdown'>
     <div class="mdl-card__title countdownTitle">
       <h2 class="mdl-card__title-text">¡Gracias!</h2>
     </div>
     <div class="mdl-card__supporting-text countdownText">
-      ¡Gracias por crear una cuenta con nosotros!
-      Podrás disfrutar del servicio completo en:
+      ¡Gracias por crear una cuenta con nosotros! Podrás disfrutar del servicio completo en:
       <h1 style="text-align:center">6 días</h1>
       ¡Te mantendremos informado, síguenos en nuestras redes sociales!
     </div>
@@ -25,7 +24,7 @@
   <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--6-col center-block mdl-card mdl-shadow--4dp">
       <div class="mdl-grid ">
-        <div class = "mdl-cell mdl-cell--12-col slider-box">
+        <div class="mdl-cell mdl-cell--12-col slider-box">
           <br>
           <label id="title">Recibes &nbsp;&nbsp; - &nbsp;&nbsp; Pagas</label><br><br>
           <label id="left" #left style="font-size:18px;font-weight:bold;"> </label>
@@ -34,16 +33,18 @@
         </div>
       </div>
       <div>
-        <form >
+        <form>
           <div class="mdl-grid">
             <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col mdl-cell--4-col text-center">
               <div class="spacer-div"></div>
-              <p class = "infoText">¿Cuánto te falta?</p>
+              <p class="infoText">¿Cuánto te falta?</p>
             </div>
             <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col mdl-cell--4-col text-center">
               <div class="slider-box">
                 <div id="wrapper">
-                  <div class="second"> <br> <div id="sliderMoney" ></div> </div>
+                  <div class="second"> <br>
+                    <div id="sliderMoney"></div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -51,10 +52,12 @@
             <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col mdl-cell--4-col text-center">
               <div class="spacer-div"></div>
               <div class="spacer-div"></div>
-              <p class = "infoText">¿Cuándo lo pagas?</p>
+              <p class="infoText">¿Cuándo lo pagas?</p>
               <div class="slider-box">
                 <div id="wrapper">
-                  <div class="second"> <br> <div id="sliderTime" type="range"></div> </div>
+                  <div class="second"> <br>
+                    <div id="sliderTime" type="range"></div>
+                  </div>
                   <br><br><br>
                   <label id="date"></label>
                 </div>
@@ -62,19 +65,20 @@
               <div class="spacer-div"></div>
             </div>
           </div>
-      </form>
-    </div>
-    <div class="mdl-card__actions mdl-card--border" align="center">
-      <!-- Accent-colored raised button with ripple -->
-      <br>
-      <button id = "buttonSubmit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" (click) = "submitLoan()" disabled>
+        </form>
+      </div>
+      <div class="mdl-card__actions mdl-card--border" align="center">
+        <!-- Accent-colored raised button with ripple -->
+        <br>
+        <button id="buttonSubmit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" (click)="submitLoan()"
+          disabled>
         Solicitar
       </button>
-      <div class="spacer-div"></div>
-      <div class="spacer-div"></div>
+        <div class="spacer-div"></div>
+        <div class="spacer-div"></div>
+      </div>
     </div>
-  </div>
-    <div class="mdl-cell mdl-cell--6-col center-block mdl-card mdl-shadow--2dp mdl-cell--top" id = "levelCard">
+    <div class="mdl-cell mdl-cell--6-col center-block mdl-card mdl-shadow--2dp mdl-cell--top" id="levelCard">
       <div align="center" style="padding-top: 15px;">
         <a href="/rewards">
           <img src="assets/images/Trophy_Icon.svg" width="200" alt=""  style="background-color:rgba(0, 0, 0, 0.05); border-radius: 50%;"/>
@@ -84,5 +88,5 @@
         </h3>
       </div>
     </div>
-</div>
-</div>
+  </div>
+</header>

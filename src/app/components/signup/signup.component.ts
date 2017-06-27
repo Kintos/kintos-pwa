@@ -47,7 +47,7 @@ export class SignupComponent implements OnInit {
         console.log(this.error);
       });
     }else {
-      alert('Las contraseñas no corresponden');
+      this.error = 'Las contraseñas no corresponden';
       this.clearPassword();
     }
   }

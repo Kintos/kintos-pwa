@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { AuthService } from "./services/auth.service";
 import { FirebaseService } from "./services/firebase.service";
 import { AngularFireAuth } from 'angularfire2/auth';
+import { MDL } from 'app/mdlUpgradeComponent.directive'
 
 @Component({
   selector: 'app-root',
