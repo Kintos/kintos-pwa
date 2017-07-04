@@ -15,42 +15,39 @@ import { MDL } from 'app/mdlUpgradeComponent.directive'
 
 export class AppComponent {
   public isLoggedIn: boolean;
-  public url:string;
-  public headerUser: string;
+  public url: string;
+  public headerUser = '';
   public user: object;
 
-  constructor(private afAuth: AngularFireAuth, 
-              private afService: AuthService, 
+  constructor(private afAuth: AngularFireAuth,
+              private afService: AuthService,
               private router: Router,
               private fbService: FirebaseService) {
     // This asynchronously checks if our user is logged it and will automatically
     // redirect them to the Login page when the status changes.
     // This is just a small thing that Firebase does that makes it easy to use.
-    
     this.afService.af.auth.subscribe(
       (auth) => {
-        if(auth == null) {
+        if (auth == null) {
           // console.log("Not Logged in.");
           //console.log(String(this.router.url))
           this.isLoggedIn = false;
-          this.url = String(this.router.url);
-          if(this.url === "/signup" || this.url === "/login"){
+          if(this.url === "/register" || this.url === "/login"){
             // this.router.navigate(['login']);
           }else{
             document.location.href = "/login"
           }
-        }
-        else {
+        }else {
           // console.log("Successfully Logged in.");
           // Set the Display Name and Email so we can attribute messages to them
           if(auth.google) {
             this.afService.displayName = auth.google.displayName;
             this.afService.email = auth.google.email;
-          }
-          else {
+          }else {
             this.isLoggedIn = true;
             this.user = this.fbService.getUser();
-            this.headerUser = "mdl-layout--fixed-drawer";
+            //this.headerUser = 'mdl-layout--fixed-drawer';
+            console.log(this.headerUser);
             this.afService.displayName = auth.auth.displayName;
             this.afService.email = auth.auth.email;
           }
@@ -65,5 +62,5 @@ export class AppComponent {
     document.location.href = "/login"
   }
 
- 
+
 }

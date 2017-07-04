@@ -1,6 +1,5 @@
-
-<div mdl class="mdl-layout mdl-js-layout mdl-layout--fixed-header {{headerUser}}" *ngIf="isLoggedIn; else elseBlock">
-  <header class="mdl-layout__header">
+<div mdl class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer" >
+  <header class="mdl-layout__header" *ngIf="isLoggedIn">
     <div class="mdl-layout__header-row">
       <span class="mdl-layout-title white" *ngIf="!isLoggedIn">
                 <!--<img src="../assets/images/mainIcon.png" alt="logo" width="40">
@@ -27,8 +26,7 @@
             </nav>-->
     </div>
   </header>
-  <div class="mdl-layout__drawer">
-    <!--<span class="mdl-layout-title">Kintos</span>-->
+  <div class="mdl-layout__drawer" *ngIf="isLoggedIn">
     <div class="drawer-bg">
       <div class="opacity-mask">
         <div class="spacer-div"></div>
@@ -63,10 +61,6 @@
               <i class="material-icons">compare_arrows</i>
               <span class="drawer-text">Movimientos</span>
             </a>
-      <!-- <a class="mdl-navigation__link" href="/settings" routerLinkActive="active">
-              <i class="material-icons">build</i>
-              <span class="drawer-text">Configuración</span>
-            </a> -->
       <a class="mdl-navigation__link" href="/help" routerLinkActive="active">
               <i class="material-icons">help_outline</i>
               <span class="drawer-text">Ayuda</span>
@@ -84,9 +78,3 @@
     </div>
   </main>
 </div>
-
-<ng-template #elseBlock>
-    <div class="page-content">
-      <router-outlet></router-outlet>
-    </div>
-</ng-template>

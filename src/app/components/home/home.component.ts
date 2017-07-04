@@ -16,8 +16,6 @@ declare var swal: any;
 })
 
 export class HomeComponent { @ViewChild('scrollMe') private myScrollContainer: ElementRef;
-  // public newMessage: string;
-  // public messages: FirebaseListObservable<any>;
   public loanActive: String;
   public info: String;
   public showCard = false;
